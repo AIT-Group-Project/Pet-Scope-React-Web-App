@@ -4,9 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useStateContext } from './contexts/ContextProvider';
 import './App.css'
 import { Navbar } from './components';
+import { HomePage } from './pages';
 
 const App = () => {
-  const {activeMenu } = useStateContext();
 
   return (
     <div>
@@ -20,8 +20,8 @@ const App = () => {
           <div>
             <Routes>
               {/* landing page */}
-              <Route path='/' element='home-page' />
-              <Route path='/home-page' element='home-page' />
+              <Route path='/' element={<HomePage />} />
+              <Route path='/home-page' element={<HomePage />} />
 
               {/* Pages */}
               <Route path='/page-1' element='page-1' />
