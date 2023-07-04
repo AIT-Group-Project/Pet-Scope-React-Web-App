@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const NavButton = ({ title, customFunc, color }) => (
     <button
@@ -11,6 +12,16 @@ const NavButton = ({ title, customFunc, color }) => (
     </button>
 );
 
+const NavLinks = ({title, color, route}) => (
+    <NavLink
+        to={route}
+        style={{color}}
+        className='relative text-xl rounded-full p-3 hover:bg-yellow-400'
+    >
+        {title}
+    </NavLink>
+);
+
 const Navbar = () => {
 
     const handleButtonClick = () => {
@@ -20,26 +31,32 @@ const Navbar = () => {
   return (
     <div className='flex justify-between p-2 bg-green-500 md:mx-6 relative'>
         <NavButton
-        title={'button 1'}
+        title={'button'}
         customFunc={() => handleButtonClick()}
         color='blue'
         />
         <div className='flex'>
-            <NavButton 
-            title={'button'}
-            customFunc={() => handleButtonClick()}
-            color={'blue'}
+            <NavLinks 
+                title={'Home'}
+                color={'blue'}
+                route={'/home'}
             />
-            <NavButton 
-            title={'button'}
-            customFunc={() => handleButtonClick()}
-            color={'blue'}
+            <NavLinks 
+                title={'Staff'}
+                color={'blue'}
+                route={'/staff'}
             />
-            <NavButton 
-            title={'button'}
-            customFunc={() => handleButtonClick()}
-            color={'blue'}
+            <NavLinks 
+                title={'Services'}
+                color={'blue'}
+                route={'/services'}
             />
+            <NavLinks 
+                title={'About Us'}
+                color={'blue'}
+                route={'/about-us'}
+            />
+
         </div>
     </div>
   );

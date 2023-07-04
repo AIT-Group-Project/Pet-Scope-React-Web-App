@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { useStateContext } from './contexts/ContextProvider';
 import './App.css'
 import { Navbar } from './components';
-import { HomePage } from './pages';
+import { Home, Staff, Services, AboutUs } from './pages';
 
 const App = () => {
 
@@ -20,13 +19,13 @@ const App = () => {
           <div>
             <Routes>
               {/* landing page */}
-              <Route path='/' element={<HomePage />} />
-              <Route path='/home-page' element={<HomePage />} />
+              <Route path='/' element={<Home />} />
+              <Route path='/home' element={<Home />} />
 
               {/* Pages */}
-              <Route path='/page-1' element='page-1' />
-              <Route path='/page-2' element='page-2' />
-              <Route path='/page-3' element='page-3' />
+              <Route path='/staff' element={<Staff />} />
+              <Route path='/services' element={<Services />} />
+              <Route path='/about-us' element={<AboutUs />} />
             </Routes>
           </div>
         </div>
