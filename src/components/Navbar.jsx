@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// import { useStateContext } from '../contexts/ContextProvider';
 
 const NavButton = ({ title, customFunc, color }) => (
     <button
