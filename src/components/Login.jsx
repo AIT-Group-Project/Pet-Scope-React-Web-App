@@ -9,7 +9,7 @@ const FormLabel = ({type, value, input}) => (
         <p>{value}</p>
         <input
             type={input}
-            className='w-full'
+            className='w-full p-1 mb-1 mt-1'
         />
     </label>
 )
@@ -26,8 +26,13 @@ const FormLabel = ({type, value, input}) => (
         input={'password'}
     />
 
-      <div className = 'relative text-xl rounded-full p-3 hover:bg-yellow-400'>
-        <button type="submit">Submit</button>
+      <div className = 'relative text-xl text-center rounded-full p-3 mt-1 hover:bg-yellow-400'>
+        <button 
+          type="submit"
+          className='w-full'
+          >
+            Submit
+          </button>
       </div>
     </form>
   )
