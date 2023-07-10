@@ -1,9 +1,44 @@
-import React from 'react'
+import React from 'react';
 
-const Register = () => {
-  return (
-    <div>Register</div>
+export default function Register() {
+  const FormLabel = ({type, value, input}) => (
+    <label
+      type={type}
+      className='w-full'
+    >
+      <p>{value}</p>
+      <input 
+        type={input}
+        className='w-full'
+      />
+    </label>
+  )
+  return(
+    <form className='font-semibold'>
+      <FormLabel 
+        type={'text'}
+        value={'First Name'}
+        input={'input'}
+      />
+      <FormLabel 
+        type={'text'}
+        value={'Last Name'}
+        input={'input'}
+      />
+      <FormLabel 
+        type={'text'}
+        value={'Email'}
+        input={'input'}
+      />
+      <FormLabel 
+        type={'text'}
+        value={'Password'}
+        input={'password'}
+      />
+      
+      <div className = 'relative text-xl rounded-full p-3 hover:bg-yellow-400'>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
   )
 }
-
-export default Register
