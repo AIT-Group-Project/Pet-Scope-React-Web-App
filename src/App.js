@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css'
-import { Navbar, Footer } from './components';
+import { Navbar, Footer, Darkmode } from './components';
 import { Home, Staff, Services, AboutUs } from './pages';
 
 const App = () => {
