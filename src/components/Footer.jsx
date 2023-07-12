@@ -1,5 +1,4 @@
 import React from 'react'
-import Darkmode from './Darkmode';
 import Itemcontainer from './Itemcontainer'
 
 const Footer = () => {

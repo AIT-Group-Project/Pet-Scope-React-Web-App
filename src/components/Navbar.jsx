@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Darkmode from './Darkmode';
 import Modal from './Modal';
 
 const NavLinks = ({title, color, route}) => (
@@ -15,7 +16,7 @@ const NavLinks = ({title, color, route}) => (
 const Navbar = () => {
 
   return (
-    <div className='flex justify-between p-2 bg-green-500 md:mx-6 relative'>
+    <div className='flex justify-between p-2 bg-green-500 dark:bg-slate-700 md:mx-6 relative'>
         <div className='relative text-xl rounded-full p-3 hover:bg-yellow-400'>
             <Modal />
         </div> 
@@ -42,6 +43,7 @@ const Navbar = () => {
             />
 
         </div>
+        <Darkmode />
     </div>
   );
 };
