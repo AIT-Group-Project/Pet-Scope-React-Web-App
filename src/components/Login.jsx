@@ -17,14 +17,14 @@ export default function Login() {
 
   return(
     <form className='font-semibold'>
-      <lable type='text'>
+      <label type='text'>
         <p className='dark:text-white'>Email</p>
         <input type='email' name='input-email' className='w-full p-1 my-1' onChange={handleInputChange} />
-      </lable>
-      <lable type='text'>
+      </label>
+      <label type='text'>
         <p className='dark:text-white'>Password</p>
         <input type='password' name='input-password' className='w-full p-1 my-1' onChange={handleInputChange} />
-      </lable>
+      </label>
       <div className = 'relative text-xl text-center rounded-full p-3 mt-1 hover:bg-slate-500'>
         <button type="submit" className='w-full dark:text-white'>Submit</button>
       </div>
