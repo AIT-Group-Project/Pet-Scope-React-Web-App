@@ -1,22 +1,22 @@
 /* Links for bottom of footer max 5 per section */
 
-export const Sample1 = [
-    {name : 'Sample',link: '#'},
-    {name : 'Sample',link: '#'},
-    {name : 'Sample',link: '#'},
+export const cat = [
+    {name : 'food',link: '#'},
+    {name : 'door',link: '#'},
+    {name : 'apple',link: '#'},
 ]
-export const Sample2 = [
-    {name : 'Sample',link: '#'},
-    {name : 'Sample',link: '#'},
-    {name : 'Sample',link: '#'},
+export const dog = [
+    {name : 'home',link: '#'},
+    {name : 'ball',link: '#'},
+    {name : 'about',link: '#'},
 ]
-export const Sample3 = [
-    {name : 'Sample',link: '#'},
-    {name : 'Sample',link: '#'},
-    {name : 'Sample',link: '#'},
+export const bird = [
+    {name : 'feed',link: '#'},
+    {name : 'water',link: '#'},
+    {name : 'tree',link: '#'},
 ]
-export const Sample4 = [
-    {name : 'Sample',link: '#'},
-    {name : 'Sample',link: '#'},
-    {name : 'Sample',link: '#'},
+export const wolf = [
+    {name : 'sheep',link: '#'},
+    {name : 'wild',link: '#'},
+    {name : 'dirt',link: '#'},
 ]

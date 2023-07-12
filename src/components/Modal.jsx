@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Modal.css';
+//import './Modal.css';
 import Login from './Login';
 import Register from './Register';
 
@@ -11,9 +11,9 @@ export default function Modal() {
     };
 
     if(modal) {
-        document.body.classList.add('active-modal')
+        document.body.classList.add('overflow-visible')
     } else {
-        document.body.classList.remove('active-modal')
+        document.body.classList.remove('overflow-visible')
     }
 
     const FormButton = ({value, customFunc, color}) => (
@@ -34,13 +34,13 @@ export default function Modal() {
 
     return (
         <>
-            <button onClick={toggleModal} className='btn-modal'>
+            <button onClick={toggleModal} className='block text-lg text-[blue] dark:text-[white] mx-0 my-auto p-0'>
                 Login
             </button>
             {modal && (
-                <div className='modal'>
-                    <div onClick={toggleModal} className='overlay'></div>
-                    <div className='modal-content'>
+                <div className='-screen h-screen fixed inset-0 '>
+                    <div onClick={toggleModal} className='w-screen h-screen fixed inset-0 bg-black/[0.8]'></div>
+                    <div className='fixed -translate-x-2/4 -translate-y-2/4 leading-[1.4] max-w-[700px] min-w-[400px] px-7 py-3.5 rounded-[3px] left-2/4 top-[40%] bg-slate-200 dark:bg-slate-700'>
                         <div className='inline'>
                             <FormButton
                                 customFunc={toggleFormPage}
@@ -59,7 +59,7 @@ export default function Modal() {
                                 )}
                             </div>
                         </div>
-                        <button className='close-modal' onClick={toggleModal}>
+                        <button className='absolute px-[7px] py-[5px] right-2.5 top-2.5 text-black dark:text-white' onClick={toggleModal}>
                             Close
                         </button>
                     </div>
