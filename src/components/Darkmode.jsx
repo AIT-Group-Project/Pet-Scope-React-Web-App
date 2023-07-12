@@ -1,4 +1,4 @@
-/*import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Darkmode = () => {
     const [theme, setTheme] = useState ("dark");
@@ -51,4 +51,4 @@ const Darkmode = () => {
   )
 }
 
-export default Darkmode */
+export default Darkmode 
