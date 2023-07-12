@@ -1,38 +1,32 @@
 import React from 'react';
+import { useStateContext } from '../contexts/ContextProvider';
 
 export default function Login() {
-const FormLabel = ({type, value, input}) => (
-    <label
-        type={type}
-        className='w-full'
-    >
-        <p>{value}</p>
-        <input
-            type={input}
-            className='w-full p-1 mb-1 mt-1'
-        />
-    </label>
-)
+
+  const { loginEmail, loginPassword, setLoginEmail, setLoginPassword } = useStateContext();
+
+  const handleInputChange = e => {
+    if (e.target.name === 'input-email') {
+      setLoginEmail(e.target.value);
+      //console.log('Email: ',loginEmail);
+    } else if (e.target.name === 'input-password') {
+      setLoginPassword(e.target.value);
+      //console.log('Password: ',loginPassword);
+    }
+  };
+
   return(
     <form className='font-semibold'>
-    <FormLabel 
-        type={'text'}
-        value={'Email'}
-        input={'input'}
-    />
-    <FormLabel 
-        type={'text'}
-        value={'Password'}
-        input={'password'}
-    />
-
-      <div className = 'relative text-xl text-center rounded-full p-3 mt-1 hover:bg-yellow-400'>
-        <button 
-          type="submit"
-          className='w-full'
-          >
-            Submit
-          </button>
+      <lable type='text'>
+        <p className='dark:text-white'>Email</p>
+        <input type='email' name='input-email' className='w-full p-1 my-1' onChange={handleInputChange} />
+      </lable>
+      <lable type='text'>
+        <p className='dark:text-white'>Password</p>
+        <input type='password' name='input-password' className='w-full p-1 my-1' onChange={handleInputChange} />
+      </lable>
+      <div className = 'relative text-xl text-center rounded-full p-3 mt-1 hover:bg-slate-500'>
+        <button type="submit" className='w-full dark:text-white'>Submit</button>
       </div>
     </form>
   )
