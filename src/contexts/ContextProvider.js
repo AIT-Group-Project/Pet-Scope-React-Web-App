@@ -7,10 +7,13 @@ const initialState = {
 }
 
 export const ContextProvider = ({ children }) => {
-    const [activeMenu, setActiveMenu] = useState (true);
+
+    const [loginEmail, setLoginEmail] = useState('');
+    const [loginPassword, setLoginPassword] = useState('');
+
 
     return (
-        <StateContext.Provider value={{activeMenu}}>
+        <StateContext.Provider value={{loginEmail, setLoginEmail, loginPassword, setLoginPassword}}>
             {children}
         </StateContext.Provider>
     )
