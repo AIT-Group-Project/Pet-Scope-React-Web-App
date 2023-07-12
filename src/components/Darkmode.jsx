@@ -1,54 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
-const Darkmode = () => {
-    const [theme, setTheme] = useState ("dark");
-    const element = document.documentElement
+export default function Darkmode() {
 
-    const options =[
-        {
-            icon: "sunny",
-            text:'light'
-        },
-        {
-            icon:"moon",
-            text:'dark'
-        },
-        {
-            icon:"desktop-outline",
-            text:'system'
-        }
-    ];
+    const[theme, setTheme]= useState ('false');
+    const toggleTheme = () => {
+        setTheme(!theme);
+    };
 
-    useEffect(() =>{
-        switch (theme) {
-            case 'dark':
-                element.classList.add('dark');
-                break;
-            case 'light':
-                element.classList.remove('dark');
-                break;
-            default:
-                break;
-
-        }
-    }, [theme]);
+    if(theme) {
+        document.documentElement.classList.add('dark')
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
   return (
     <div>
-        {
-            options?.map(opt=>(
-            <button 
-            key={opt.text}
-            onClick={() => setTheme(opt.text)} 
-            className={`w-8 h-8 leading-9 text-xl rounded-full m-1 ${theme === opt.text && "text-sky-600"}`}
-            >
-                <ion-icon name={opt.icon}></ion-icon>
-            
-            </button>
-                
-            ))
-        }
+        <button onClick={toggleTheme} className=''>
+            Darkmode/theme 
+        </button>
+
+
     </div>
   )
 }
 
-export default Darkmode 
