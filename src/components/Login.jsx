@@ -8,10 +8,8 @@ export default function Login() {
   const handleInputChange = e => {
     if (e.target.name === 'input-email') {
       setLoginEmail(e.target.value);
-      //console.log('Email: ',loginEmail);
     } else if (e.target.name === 'input-password') {
       setLoginPassword(e.target.value);
-      //console.log('Password: ',loginPassword);
     }
   };
 

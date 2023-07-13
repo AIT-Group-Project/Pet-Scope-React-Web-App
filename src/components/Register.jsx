@@ -1,48 +1,42 @@
 import React from 'react';
+import { useStateContext } from '../contexts/ContextProvider';
 
 export default function Register() {
-  const FormLabel = ({type, value, input}) => (
-    <label
-      type={type}
-      className='w-full'
-    >
-      <p>{value}</p>
-      <input 
-        type={input}
-        className='w-full p-1 mb-1 mt-1'
-      />
-    </label>
-  )
+
+  const { registerFirstName, setRegisterFirstName, registerLastName, setRegisterLastName, registerEmail, setRegisterEmail, registerPassword, setRegisterPassword } = useStateContext();
+
+  const handleInputChange = e => {
+    if (e.target.name === 'reg-input-first-name') {
+      setRegisterFirstName(e.target.value);
+    } else if (e.target.name === 'reg-input-last-name') {
+      setRegisterLastName(e.target.value);
+    } else if (e.target.name === 'reg-input-email') {
+      setRegisterEmail(e.target.value);
+    } else if (e.target.name === 'reg-input-password') {
+      setRegisterPassword(e.target.value);
+    }
+  };
+  
   return(
     <form className='font-semibold'>
-      <FormLabel 
-        type={'text'}
-        value={'First Name'}
-        input={'input'}
-      />
-      <FormLabel 
-        type={'text'}
-        value={'Last Name'}
-        input={'input'}
-      />
-      <FormLabel 
-        type={'text'}
-        value={'Email'}
-        input={'input'}
-      />
-      <FormLabel 
-        type={'text'}
-        value={'Password'}
-        input={'password'}
-      />
-      
-      <div className = 'relative text-xl text-center rounded-full p-3 mt-1 hover:bg-yellow-400'>
-      <button 
-          type="submit"
-          className='w-full'
-          >
-            Submit
-          </button>
+      <label type='text'>
+        <p className='dark:text-white'>First Name</p>
+        <input type='text' name='reg-input-first-name' className='w-full p-1 my-1' onChange={handleInputChange} />
+      </label>
+      <label type='text'>
+        <p className='dark:text-white'>Last Name</p>
+        <input type='text' name='reg-input-last-name' className='w-full p-1 my-1' onChange={handleInputChange} />
+      </label>
+      <label type='text'>
+        <p className='dark:text-white'>Email</p>
+        <input type='email' name='reg-input-email' className='w-full p-1 my-1' onChange={handleInputChange} />
+      </label>
+      <label type='text'>
+        <p className='dark:text-white'>Password</p>
+        <input type='password' name='reg-input-password' className='w-full p-1 my-1' onChange={handleInputChange} />
+      </label>
+      <div className = 'relative text-xl text-center rounded-full p-3 mt-1 hover:bg-slate-500'>
+        <button type="submit" className='w-full dark:text-white'>Submit</button>
       </div>
     </form>
   )
