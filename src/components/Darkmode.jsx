@@ -6,12 +6,6 @@ export default function Darkmode() {
     const toggleTheme = () => {
         setTheme(!theme);
     };
-    const togglemoon =[
-        <ion-icon name="moon"></ion-icon>
-    ];
-    const togglesunny =[
-        <ion-icon name="sunny"></ion-icon>
-    ];
 
     if(theme) {
         document.documentElement.classList.add('dark')
@@ -20,7 +14,7 @@ export default function Darkmode() {
     }
   return (
     <div>
-        <button onClick={toggleTheme} className=''>
+        <button onClick={toggleTheme} className='w-8 h-8 leading-9 text-2xl rounded-full m-2 text-slate-900'>
             {theme ? <ion-icon name="moon"></ion-icon> : <ion-icon name="sunny"></ion-icon>}
             
         </button>
