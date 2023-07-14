@@ -1,8 +1,11 @@
-import React from 'react'
+import react from 'react'
+import { Map } from '../components'
 
 const AboutUs = () => {
   return (
-    <div>AboutUs</div>
+    <div>AboutUs
+      <Map />
+    </div>
   )
 }
 
