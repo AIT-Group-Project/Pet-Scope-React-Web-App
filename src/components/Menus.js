@@ -1,9 +1,10 @@
 /* Links for bottom of footer max 5 per section */
 
-export const cat = [
-    {name : 'food',link: '#'},
-    {name : 'door',link: '#'},
-    {name : 'apple',link: '#'},
+export const PageLinks = [
+    {name : 'Home',link: '/Home'},
+    {name : 'Services',link: '/Services'},
+    {name : 'Staff',link: '/Staff'},
+    {name : 'AboutUs',link: '/About-Us'},
 ]
 export const dog = [
     {name : 'home',link: '#'},
