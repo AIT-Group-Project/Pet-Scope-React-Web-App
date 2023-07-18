@@ -1,6 +1,6 @@
 
-import { Map } from '../components'
-import Images from '../components/Images'
+import { Map, Contactsbox } from '../components'
+
 
 const AboutUs = () => {
   return (
@@ -8,8 +8,7 @@ const AboutUs = () => {
     Where to find us
       <Map />
       <div className='text-center p-40 mx-auto  '>
-        content box
-        <Images />
+        <Contactsbox />
       </div>
     </div>
 

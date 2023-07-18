@@ -6,7 +6,7 @@ import Modal from './Modal';
 const NavLinks = ({title, color, route}) => (
     <NavLink
         to={route}
-        className='relative text-xl rounded-full p-3 hover:bg-yellow-400 dark:text-white'
+        className='relative text-xl rounded-full p-3 hover:bg-yellow-400 text-[blue] dark:text-white'
     >
         {title}
     </NavLink>
