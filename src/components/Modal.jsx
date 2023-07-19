@@ -40,7 +40,7 @@ export default function Modal() {
                     <div className='fixed -translate-x-2/4 -translate-y-2/4 leading-[1.4] max-w-[700px] min-w-[400px] px-7 py-3.5 rounded-[3px] left-2/4 top-[40%] bg-slate-200 dark:bg-slate-700'>
                         <div className='inline'>
                             <div>
-                                <button className='relative text-xl rounded-lg p-3 mx-1 my-2 dark:bg-slate-500 dark:text-white' onClick={toggleFormPage}>{btnText}</button>
+                                <button className='relative text-xl rounded-lg p-3 mx-1 my-2 bg-slate-300 dark:bg-slate-500 dark:text-white' onClick={toggleFormPage}>{btnText}</button>
                             </div>
                             <div>
                                 {formPage ? (
@@ -60,7 +60,7 @@ export default function Modal() {
                                 )}
                             </div>
                         </div>
-                        <button className='absolute px-3 py-1 right-7 top-5 rounded-full dark:bg-slate-500 text-black dark:text-white' onClick={toggleModal}>X</button>
+                        <button className='absolute px-3 py-1 right-7 top-5 rounded-full bg-slate-300 dark:bg-slate-500 text-black dark:text-white' onClick={toggleModal}>X</button>
                     </div>
                 </div>
             )}       
