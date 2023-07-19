@@ -18,9 +18,12 @@ export const ContextProvider = ({ children }) => {
     const [registerEmail, setRegisterEmail] = useState('');
     const [registerPassword, setRegisterPassword] = useState('');
 
+    {/* Modal.jsx */}
+    const [modal, setModal] = useState(false);
+
 
     return (
-        <StateContext.Provider value={{loginEmail, setLoginEmail, loginPassword, setLoginPassword, registerFirstName, setRegisterFirstName, registerLastName, setRegisterLastName, registerEmail, setRegisterEmail, registerPassword, setRegisterPassword}}>
+        <StateContext.Provider value={{loginEmail, setLoginEmail, loginPassword, setLoginPassword, registerFirstName, setRegisterFirstName, registerLastName, setRegisterLastName, registerEmail, setRegisterEmail, registerPassword, setRegisterPassword, modal, setModal}}>
             {children}
         </StateContext.Provider>
     )

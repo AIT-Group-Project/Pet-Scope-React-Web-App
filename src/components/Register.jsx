@@ -4,7 +4,11 @@ import { useStateContext } from '../contexts/ContextProvider';
 
 export default function Register() {
 
-  const { registerFirstName, setRegisterFirstName, registerLastName, setRegisterLastName, registerEmail, setRegisterEmail, registerPassword, setRegisterPassword } = useStateContext();
+  const { registerFirstName, setRegisterFirstName, registerLastName, setRegisterLastName, registerEmail, setRegisterEmail, registerPassword, setRegisterPassword, modal, setModal } = useStateContext();
+
+  const toggleModal = () => {
+    setModal(!modal);
+};
 
   const handleInputChange = e => {
     if (e.target.name === 'reg-input-first-name') {
@@ -35,6 +39,7 @@ export default function Register() {
     .catch(function (e) {
       console.log(e);
     });
+    toggleModal();
   }
   
   return(

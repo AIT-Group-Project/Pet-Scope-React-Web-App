@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Login from './Login';
 import Register from './Register';
+import { useStateContext } from '../contexts/ContextProvider';
 
 export default function Modal() {
-    const [modal, setModal] = useState(false);
+    const { modal, setModal } = useStateContext();
     let btnText = ''
 
     const toggleModal = () => {
