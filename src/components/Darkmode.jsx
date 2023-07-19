@@ -14,7 +14,7 @@ export default function Darkmode() {
     }
   return (
     <div>
-        <button onClick={toggleTheme} className='w-8 h-8 leading-9 text-2xl rounded-full m-2 text-slate-900'>
+        <button onClick={toggleTheme} className='w-8 h-8 leading-9 text-2xl rounded-full m-2'>
             {theme ? <ion-icon name="moon"></ion-icon> : <ion-icon name="sunny"></ion-icon>}
             
         </button>
