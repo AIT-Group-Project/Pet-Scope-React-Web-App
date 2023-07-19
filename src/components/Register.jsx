@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import bcrypt from 'bcryptjs';
 import { useStateContext } from '../contexts/ContextProvider';
 
 export default function Register() {
@@ -24,13 +25,14 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let salt = 'salt_test';
+    let salt = bcrypt.genSaltSync(10);
+    let passwordHash = bcrypt.hashSync(registerPassword, salt);
 
     axios.post(`http://localhost:8090/api/register`, {
         "first_name": registerFirstName,
         "last_name": registerLastName,
         "email": registerEmail,
-        "password_hash": registerPassword,
+        "password_hash": passwordHash,
         "password_salt": salt
     })
     .then(function (res) {
