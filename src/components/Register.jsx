@@ -35,11 +35,12 @@ export default function Register() {
     })
     .then(function (res) {
       console.log(res);
+      toggleModal();
     })
     .catch(function (e) {
       console.log(e);
     });
-    toggleModal();
+    
   }
   
   return(
