@@ -29,8 +29,8 @@ export default function Register() {
         "password_hash": registerPassword,
         "password_salt": salt
     })
-    .then(function (response) {
-      console.log(response);
+    .then(function (res) {
+      console.log(res);
     })
     .catch(function (e) {
       console.log(e);
