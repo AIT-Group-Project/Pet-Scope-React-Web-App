@@ -23,7 +23,7 @@ export default function Login() {
         <p className='dark:text-white'>Password</p>
         <input type='password' name='log-input-password' className='w-full p-1 my-1' onChange={handleInputChange} required/>
       </label>
-      <div className = 'relative text-xl text-center rounded-full p-3 mt-1 hover:bg-slate-500'>
+      <div className = 'relative text-xl text-center rounded-lg p-3 my-2 dark:bg-slate-500 dark:hover:bg-slate-500/[0.5]'>
         <button type="submit" className='w-full dark:text-white'>Submit</button>
       </div>
     </form>
