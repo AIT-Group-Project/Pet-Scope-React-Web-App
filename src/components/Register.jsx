@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { useStateContext } from '../contexts/ContextProvider';
 
 export default function Register() {
@@ -16,6 +17,25 @@ export default function Register() {
       setRegisterPassword(e.target.value);
     }
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let salt = 'salt_test';
+
+    axios.post(`http://localhost:8090/api/register`, {
+        "first_name": registerFirstName,
+        "last_name": registerLastName,
+        "email": registerEmail,
+        "password_hash": registerPassword,
+        "password_salt": salt
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (e) {
+      console.log(e);
+    });
+  }
   
   return(
     <form className='font-semibold'>
@@ -36,7 +56,7 @@ export default function Register() {
         <input type='password' name='reg-input-password' className='w-full p-1 my-1' onChange={handleInputChange} required/>
       </label>
       <div className = 'relative text-xl text-center rounded-full p-3 mt-1 hover:bg-slate-500'>
-        <button type="submit" className='w-full dark:text-white'>Submit</button>
+        <button type="submit" className='w-full dark:text-white' onClick={handleSubmit}>Submit</button>
       </div>
     </form>
   )
