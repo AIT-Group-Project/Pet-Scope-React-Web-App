@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 import Darkmode from './Darkmode';
 import Modal from './Modal';
 
-const NavLinks = ({title, color, route}) => (
+const NavLinks = ({title, route}) => (
     <NavLink
         to={route}
-        className='relative text-xl rounded-full p-3 hover:bg-yellow-400 text-[blue] dark:text-white'
+        className='relative text-xl rounded-lg m-2 px-3 py-2 hover:bg-yellow-400 text-blue-700 dark:hover:bg-slate-500 dark:text-white'
     >
         {title}
     </NavLink>
@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <div className='flex justify-between p-2 bg-green-500 dark:bg-slate-700 relative'>
-        <div className='relative text-xl rounded-full p-3 hover:bg-yellow-400'>
+        <div className='relative'>
             <Modal />
         </div> 
         <div className='flex'>
@@ -38,7 +38,9 @@ const Navbar = () => {
             />
 
         </div>
-        <Darkmode />
+        <div className='p-2 m-0'>
+            <Darkmode />
+        </div>
     </div>
   );
 };

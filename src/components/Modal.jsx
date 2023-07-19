@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-//import './Modal.css';
 import Login from './Login';
 import Register from './Register';
 
 export default function Modal() {
     const [modal, setModal] = useState(false);
+    let btnText = ''
 
     const toggleModal = () => {
         setModal(!modal);
@@ -16,15 +16,6 @@ export default function Modal() {
         document.body.classList.remove('overflow-visible')
     }
 
-    const FormButton = ({value, customFunc, color}) => (
-        <button
-            onClick={() => customFunc()}
-            style={{color}}
-            className='relative text-xl rounded-full p-3 m-1 bg-slate-600'
-        >
-            {value}
-        </button>
-    );
 
     const [formPage, setFormPage] = useState(true);
     
@@ -32,9 +23,15 @@ export default function Modal() {
         setFormPage(!formPage);
     }
 
+    if (formPage) {
+        btnText = 'Register'
+    } else {
+        btnText = 'Login'
+    }
+
     return (
         <>
-            <button onClick={toggleModal} className='block text-lg text-[blue] dark:text-[white] mx-0 my-auto p-0'>
+            <button onClick={toggleModal} className='block text-xl rounded-lg m-2 px-3 py-2 hover:bg-yellow-400 text-blue-700 dark:bg-slate-500 dark:text-white'>
                 Login
             </button>
             {modal && (
@@ -42,26 +39,28 @@ export default function Modal() {
                     <div onClick={toggleModal} className='w-screen h-screen fixed inset-0 bg-black/[0.8]'></div>
                     <div className='fixed -translate-x-2/4 -translate-y-2/4 leading-[1.4] max-w-[700px] min-w-[400px] px-7 py-3.5 rounded-[3px] left-2/4 top-[40%] bg-slate-200 dark:bg-slate-700'>
                         <div className='inline'>
-                            <FormButton
-                                customFunc={toggleFormPage}
-                                value={'login / Register'}
-                                color={'red'}
-                            />
+                            <div>
+                                <button className='relative text-xl rounded-lg p-3 mx-1 my-2 bg-slate-300 dark:bg-slate-500 dark:text-white' onClick={toggleFormPage}>{btnText}</button>
+                            </div>
                             <div>
                                 {formPage ? (
                                     <div>
+                                        <div className='flex w-full'>
+                                            <p className='m-auto dark:text-white'>Login Form</p>
+                                        </div>
                                         <Login />
                                     </div>
                                 ) : (
                                     <div>
+                                        <div className='flex w-full'>
+                                            <p className='m-auto dark:text-white'>Register Form</p>
+                                        </div>
                                         <Register />
                                     </div>
                                 )}
                             </div>
                         </div>
-                        <button className='absolute px-[7px] py-[5px] right-2.5 top-2.5 text-black dark:text-white' onClick={toggleModal}>
-                            Close
-                        </button>
+                        <button className='absolute px-3 py-1 right-7 top-5 rounded-full bg-slate-300 dark:bg-slate-500 text-black dark:text-white' onClick={toggleModal}>X</button>
                     </div>
                 </div>
             )}       
