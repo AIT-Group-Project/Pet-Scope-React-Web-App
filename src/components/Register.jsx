@@ -25,15 +25,15 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let salt = bcrypt.genSaltSync(10);
-    let passwordHash = bcrypt.hashSync(registerPassword, salt);
+    let passwordSalt = bcrypt.genSaltSync(10);
+    let passwordHash = bcrypt.hashSync(registerPassword, passwordSalt);
 
     axios.post(`http://localhost:8090/api/register`, {
         "first_name": registerFirstName,
         "last_name": registerLastName,
         "email": registerEmail,
         "password_hash": passwordHash,
-        "password_salt": salt
+        "password_salt": passwordSalt
     })
     .then(function (res) {
       console.log(res);
