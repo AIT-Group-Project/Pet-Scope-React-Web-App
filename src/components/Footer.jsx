@@ -3,7 +3,7 @@ import Itemcontainer from './Itemcontainer'
 
 const Footer = () => {
   return (
-  <footer className="bg-teal-500 text-white">
+  <footer className="bg-teal-500 text-white dark:bg-slate-700 dark:text-white">
     
 
 
