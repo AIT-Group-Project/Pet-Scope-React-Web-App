@@ -11,6 +11,8 @@ export const ContextProvider = ({ children }) => {
     {/* Login.jsx */}
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
+    const [result, setResult] = useState(null);
+    const [resultUserInfo, setResultUserInfo] = useState(null);
 
     {/* Register.jsx */}
     const [registerFirstName, setRegisterFirstName] = useState('');
@@ -23,7 +25,7 @@ export const ContextProvider = ({ children }) => {
 
 
     return (
-        <StateContext.Provider value={{loginEmail, setLoginEmail, loginPassword, setLoginPassword, registerFirstName, setRegisterFirstName, registerLastName, setRegisterLastName, registerEmail, setRegisterEmail, registerPassword, setRegisterPassword, modal, setModal}}>
+        <StateContext.Provider value={{loginEmail, setLoginEmail, loginPassword, setLoginPassword, registerFirstName, setRegisterFirstName, registerLastName, setRegisterLastName, registerEmail, setRegisterEmail, registerPassword, setRegisterPassword, modal, setModal, result, setResult, resultUserInfo, setResultUserInfo}}>
             {children}
         </StateContext.Provider>
     )

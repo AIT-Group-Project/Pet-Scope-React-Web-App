@@ -43,7 +43,7 @@ export default function Register() {
       console.log(e);
     });
     
-  }
+  };
   
   return(
     <form className='font-semibold'>
