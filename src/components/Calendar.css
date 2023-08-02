@@ -1,0 +1,128 @@
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+.app {
+    @apply w-1/4 mx-auto my-0;
+  
+    /* text-align: center; */
+  }
+  .selected-date {
+    @apply mx-auto my-0;
+  }
+  .times button {
+    @apply block bg-[#6f48eb] text-[white] mt-[5px];
+  }
+  .App-logo {
+    @apply h-[40vmin] pointer-events-none motion-safe:animate-[App-logo-spin_infinite_20s_linear];
+  }
+  .App-header {
+    @apply bg-[#282c34] min-h-screen flex flex-col items-center justify-center text-[calc(10px_+_2vmin)] text-[white];
+  }
+  .App-link {
+    @apply text-[#61dafb];
+  }
+  
+  /* react calendar */
+  .react-calendar {
+    @apply w-[700px] max-w-full bg-[rgb(131,125,125)] text-[white] shadow-[0_12px_24px_rgba(0,0,0,0.2)] leading-[1.125em] rounded-lg;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .react-calendar__navigation button {
+    @apply text-[white] min-w-[44px] text-base mt-2 min-w-[44px];
+    background: none;
+  }
+  .react-calendar--doubleView {
+    @apply w-[700px];
+  }
+  .react-calendar--doubleView .react-calendar__viewContainer {
+    @apply flex mt-[-0.5em] mr-[-0.5em] mb-[-0.5em] ml-[-0.5em];
+  }
+  .react-calendar--doubleView .react-calendar__viewContainer > * {
+    @apply w-6/12 m-[0.5em];
+  }
+  .react-calendar,
+  .react-calendar *,
+  .react-calendar *:before,
+  .react-calendar *:after {
+    @apply box-border;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  .react-calendar button {
+    @apply m-0 border-0 enabled:hover:cursor-pointer;
+    outline: none;
+  }
+  .react-calendar__navigation {
+    @apply flex h-11 mb-[1em];
+  }
+  .react-calendar__navigation button {
+    /* background: none; */
+  }
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus {
+    @apply bg-[#e6e6e6];
+  }
+  .react-calendar__navigation button[disabled] {
+    @apply bg-[#f0f0f0];
+  }
+  .react-calendar__month-view__weekdays {
+    @apply text-center uppercase font-[bold] text-[0.75em];
+  }
+  .react-calendar__month-view__weekdays__weekday {
+    @apply p-[0.5em];
+  }
+  .react-calendar__month-view__weekNumbers .react-calendar__tile {
+    @apply flex items-center justify-center text-[0.75em] font-[bold];
+    padding: calc(0.75em / 0.75) calc(0.5em / 0.75);
+  }
+  .react-calendar__month-view__days__day--weekend {
+    @apply text-[white];
+  
+    /* color: #d10000; */
+  }
+  .react-calendar__month-view__days__day--neighboringMonth {
+    @apply text-[white];
+  }
+  .react-calendar__year-view .react-calendar__tile,
+  .react-calendar__decade-view .react-calendar__tile,
+  .react-calendar__century-view .react-calendar__tile {
+    @apply px-[0.5em] py-[2em];
+  }
+  .react-calendar__tile {
+    @apply max-w-full text-center px-[0.5em] py-[0.75em] disabled:bg-[#f0f0f0];
+    background: none;
+  }
+  .react-calendar__tile:enabled:hover,
+  .react-calendar__tile:enabled:focus {
+    @apply bg-[#e6e6e6];
+  }
+  .react-calendar__tile--now {
+    @apply bg-[#6f48eb];
+  
+    /* background: #ffff76; */
+  }
+  .react-calendar__tile--now:enabled:hover,
+  .react-calendar__tile--now:enabled:focus {
+    background: #ffffa9;
+  }
+  .react-calendar__tile--hasActive {
+    background: #76baff;
+  }
+  .react-calendar__tile--hasActive:enabled:hover,
+  .react-calendar__tile--hasActive:enabled:focus {
+    background: #a9d4ff;
+  }
+  .react-calendar__tile--active {
+    @apply text-[white];
+    background: #6f48eb;
+  }
+  .react-calendar__tile--active:enabled:hover,
+  .react-calendar__tile--active:enabled:focus {
+    background: #1087ff;
+  }
+  .react-calendar--selectRange .react-calendar__tile--hover {
+    @apply bg-[#e6e6e6];
+  }
+  

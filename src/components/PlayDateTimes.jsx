@@ -21,7 +21,7 @@ function PlayDateTimes(props) {
 
 return (
  
- <div className='box-border p-3 border-4 items-center bg-emerald-400 dark:bg-slate-700 mx-auto'>
+ <div className='box-border p-3 c mx-auto'>
     "Please Select A Time"
    {time.map(times => {
     return (
@@ -38,7 +38,7 @@ return (
     {answer ? <button onClick={(c)=> sayHello (window.location.reload(true))}>Yes</button>: null} {answer ? 'or' :null} {answer ? <button onClick={(d)=> window.location.reload(true)}>No</button>: null}
     </div>
  </div>
- 
+
   )
 }
 
