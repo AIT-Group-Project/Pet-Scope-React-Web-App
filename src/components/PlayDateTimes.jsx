@@ -1,21 +1,27 @@
 import React from 'react'
 import {useState} from 'react';
 
-const time = ['08:00','09:00','10:00','14:00','15:00']
+const time = ['08:00 AM','09:00 AM','10:00 AM','2:00 PM','3:00 PM']
 
 function PlayDateTimes(props) {
 
+  function sayHello() {
+    alert('Invite Sent');
+  }
+
  const [event, setEvent] = useState(null)
  const [info, setInfo] = useState(false)
+ const [answer, setAnswer] =useState(false)
 
  function displayInfo(e) {
    setInfo(true);
    setEvent(e.target.innerText);
+   setAnswer(true);
 }
 
 return (
  
- <div className="times">
+ <div className='box-border p-3 border-4 items-center bg-emerald-400 dark:bg-slate-700 mx-auto'>
     "Please Select A Time"
    {time.map(times => {
     return (
@@ -24,13 +30,15 @@ return (
     </div>
         )
      })}
-    <div>
+
+    <div className>
       {info ? `Would You Like To Send This Invite ${event} ${props.date.toDateString()}` : null}
     </div>
     <div>
-      {info ? `Yes or No?` : null}
+    {answer ? <button onClick={(c)=> sayHello (window.location.reload(true))}>Yes</button>: null} {answer ? 'or' :null} {answer ? <button onClick={(d)=> window.location.reload(true)}>No</button>: null}
     </div>
  </div>
+ 
   )
 }
 

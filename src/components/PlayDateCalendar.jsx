@@ -8,15 +8,12 @@ const PlayDateCalendar = () => {
   const [showTime, setShowTime] = useState(false)
 
   return (
-    <div className='p-3 items-center bg-emerald-400 dark:bg-slate-700 mx-auto'>
+    <div className='box-border p-3 border-4 items-center bg-emerald-400 dark:bg-slate-700 mx-auto'>
     <h1 className ='header'>Calendar</h1>
     <div className="calendar-container">
-        <Calendar onChange={setDate} value={date} onClickDay={() => setShowTime(true)}/>
+        <Calendar onChange={setDate} value={date} onClickDay={() => setShowTime(true)} />
    <Time showTime={showTime} date={date}/> 
     </div>
-      <div className="text-center">
-        Selected date: {date.toDateString()}
-      </div>
     </div>
     
   );
