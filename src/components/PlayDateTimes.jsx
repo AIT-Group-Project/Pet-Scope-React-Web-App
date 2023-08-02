@@ -1,12 +1,13 @@
 import React from 'react'
 import {useState} from 'react';
+import {Alert} from 'react-native';
 
 const time = ['08:00 AM','09:00 AM','10:00 AM','2:00 PM','3:00 PM']
 
 function PlayDateTimes(props) {
 
   function sayHello() {
-    alert('Invite Sent');
+    Alert.alert('Play Date App','Date Set: ');
   }
 
  const [event, setEvent] = useState(null)
