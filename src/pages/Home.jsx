@@ -5,8 +5,8 @@ import React from 'react'
 const homepage = () => {
   return (
 
-  <div class="bg-[url(https://images.pexels.com/photos/46024/pexels-photo-46024.jpeg)] h-screen w-screen relative">
-    <div class="absolute bottom-0 px-4 py-3 bg-gray-500/50 w-full">
+  <div class="bg-[url(https://images.pexels.com/photos/46024/pexels-photo-46024.jpeg)]  h-screen w-full relative">
+    <div class="absolute top-0 px-4 py-3 bg-gray-500/50 w-full">
       <h1 class="text-white font-semibold text-4xl"> Our veterinary clinic provides modern, professional and affordable health care for your pets.
                 </h1>
       <p class="text-gray-200">
