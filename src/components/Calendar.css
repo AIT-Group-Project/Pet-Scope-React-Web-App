@@ -65,7 +65,7 @@
     @apply bg-[#e6e6e6];
   }
   .react-calendar__navigation button[disabled] {
-    @apply bg-[#f0f0f0];
+    @apply bg-[#ff0000];
   }
   .react-calendar__month-view__weekdays {
     @apply text-center uppercase font-[bold] text-[0.75em];
@@ -91,7 +91,7 @@
     @apply px-[0.5em] py-[2em];
   }
   .react-calendar__tile {
-    @apply max-w-full text-center px-[0.5em] py-[0.75em] disabled:bg-[#f0f0f0];
+    @apply max-w-full text-center px-[0.5em] py-[0.75em] disabled:bg-[#ff0000];
     background: none;
   }
   .react-calendar__tile:enabled:hover,

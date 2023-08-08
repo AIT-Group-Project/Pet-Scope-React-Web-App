@@ -13,7 +13,11 @@ const PlayDateCalendar = () => {
     <div className='box-border p-3 border-4 items-center bg-emerald-400 dark:bg-slate-700 mx-auto app'>
     <h1 className ='header'>Calendar</h1>
     <div className="calendar-container">
-        <Calendar onChange={setDate} value={date} onClickDay={() => setShowTime(true)} />
+        <Calendar 
+        onChange={setDate} 
+        value={date} 
+        minDate={new Date()} 
+        onClickDay={() => setShowTime(true)}/>
    <Time showTime={showTime} date={date}/> 
     </div>
     </div>
