@@ -28,7 +28,7 @@ return (
    {time.map(times => {
     return (
     <div>
-      <button class="font-normal bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 transform motion-safe:hover:scale-110 sm:hover:bg-slate-400 sm:hover:font-bold font-bold box-border h-16 w-16 p-1 border-4 bg-emerald-400 dark:bg-slate-700 mx-auto"
+      <button class="font-normal hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 transform motion-safe:hover:scale-110 sm:hover:bg-slate-400 sm:hover:font-bold font-bold box-border h-16 w-16 p-1 border-4 bg-emerald-400 dark:bg-slate-700 mx-auto"
       onClick={(e)=> displayInfo(e)}> {times} </button>
     </div>
         )
