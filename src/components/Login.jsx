@@ -17,10 +17,10 @@ export default function Login() {
       email: loginEmailElement.current?.value,
       password: loginPasswordElement.current?.value,
     };
-
     console.log('current auth data: ', data); // debug
 
     try {
+      // add authToken to Bearer Token
       const response = await axios.post(`http://localhost:3500/auth`, {
         "email": data.email,
         "password": data.password,
@@ -28,7 +28,7 @@ export default function Login() {
       if (!response.ok) {
         if (response.status === 401) {
           // this means that the user is not authorized
-          // send refreshToken
+          // send refreshToken cookie to get a new auth token
           throw new Error(`${response.status} ${response.statusText}`);
         } else if (response.status === 403) {
           // this means that users password is invalid
@@ -40,25 +40,31 @@ export default function Login() {
       console.log(error.stack);
     }
   };
-  
+
   const handleAuth = () => async (e) => {
     e.preventDefault();
 
     // res: accessToken  (res.data.accessToken)
     // res: refreshToken (cookie)
     const resData = await auth();
-    console.log('resData: ', resData); // debug
 
-    // add concept of a user 
-    //  - set var accessToken
-    //  - set var user_id
-    //  - set var email
-    // todo store the users accessToken in memory only (security reasons)
+    if (resData !== undefined) {
+      console.log('resData: ', resData); // debug
+      
+      // add concept of a user 
+      // create authProvider context provider 
+      //  - set var accessToken
+      //  - set var user_id
+      //  - set var email
+      // todo store the users accessToken in memory only (security reasons)
+      // windows memory storage 
+    }
 
     // closes login modal once user is logged in
     toggleModal();
   }
   
+  // reminder to change the login button to a sign out button when a user has logged in
   return(
     <div>
       <form className='font-semibold'>

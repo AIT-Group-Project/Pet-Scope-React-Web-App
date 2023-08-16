@@ -4,13 +4,13 @@ const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
 
-    {/* Register.jsx */}
+    /* Register.jsx */
     const [registerFirstName, setRegisterFirstName] = useState('');
     const [registerLastName, setRegisterLastName] = useState('');
     const [registerEmail, setRegisterEmail] = useState('');
     const [registerPassword, setRegisterPassword] = useState('');
 
-    {/* Modal.jsx */}
+    /* Modal.jsx */
     const [modal, setModal] = useState(false);
 
 
