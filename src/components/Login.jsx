@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useRef } from 'react';
 import axios from 'axios';
-import bcrypt from 'bcryptjs';
 import { useStateContext } from '../contexts/ContextProvider';
 
 export default function Login() {
@@ -9,61 +8,56 @@ export default function Login() {
   const loginPasswordElement = useRef('');
   const {modal, setModal} = useStateContext();
 
-  useEffect(() => {
-    // console.log(`current email: ${loginEmailElement.current?.value}`)
-    // console.log(`current password: ${loginPasswordElement.current?.value}`)
-  })
-  
   const toggleModal = () => {
     setModal(!modal);
   };
-
-  const getUsersSalt = async () => {
-    try {
-      const response = await axios.post(`http://localhost:8090/api/salt`, {
-        "email": loginEmailElement.current?.value,
-      });
-
-      console.log(response.data.password_salt);
-      return response;
-    } catch (error) {
-      console.log(error);
-      return null;
-    }
-  };
   
-  const login = async (data) => {
+  const auth = async () => {
+    const data = {
+      email: loginEmailElement.current?.value,
+      password: loginPasswordElement.current?.value,
+    };
+
+    console.log('current auth data: ', data); // debug
+
     try {
-      const hashedPassword = await bcrypt.hashSync(data.password, data.salt);
-      const response = await axios.post(`http://localhost:8090/api/test`, {
+      const response = await axios.post(`http://localhost:3500/auth`, {
         "email": data.email,
-        "password_hash": hashedPassword,
+        "password": data.password,
       });
-  
-      console.log(response);
+      if (!response.ok) {
+        if (response.status === 401) {
+          // this means that the user is not authorized
+          // send refreshToken
+          throw new Error(`${response.status} ${response.statusText}`);
+        } else if (response.status === 403) {
+          // this means that users password is invalid
+          throw new Error(`${response.status} ${response.statusText}`);
+        }
+      }
+      return response.data;
     } catch (error) {
-      console.log(error);
+      console.log(error.stack);
     }
   };
   
-  const handleSubmitNotActiveUser = useCallback(
-    () => async (event) => {
-      event.preventDefault();
+  const handleAuth = () => async (e) => {
+    e.preventDefault();
 
-      const usersSalt = await getUsersSalt();
+    // res: accessToken  (res.data.accessToken)
+    // res: refreshToken (cookie)
+    const resData = await auth();
+    console.log('resData: ', resData); // debug
 
-      const data = {
-        email: loginEmailElement.current?.value,
-        password: loginPasswordElement.current?.value,
-        salt: usersSalt.data.password_salt
-      };
-      console.log(data)
+    // add concept of a user 
+    //  - set var accessToken
+    //  - set var user_id
+    //  - set var email
+    // todo store the users accessToken in memory only (security reasons)
 
-      await login(data);
-      toggleModal();
-    },
-    []
-  );
+    // closes login modal once user is logged in
+    toggleModal();
+  }
   
   return(
     <div>
@@ -77,7 +71,7 @@ export default function Login() {
           <input ref={loginPasswordElement} type='password' className='w-full p-1 my-1' required/>
         </label>
         <div className = 'relative text-xl text-center rounded-lg p-3 my-2 dark:bg-slate-500 dark:hover:bg-slate-500/[0.5]'>
-          <button type="submit" className='w-full rounded-lg dark:text-white' onClick={handleSubmitNotActiveUser()}>Submit</button>
+          <button type="submit" className='w-full rounded-lg dark:text-white' onClick={handleAuth()}>Submit</button>
         </div>
       </form>
     </div>

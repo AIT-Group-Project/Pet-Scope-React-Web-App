@@ -1,9 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-import bcrypt from 'bcryptjs';
 import { useStateContext } from '../contexts/ContextProvider';
 
 export default function Register() {
+
+  // this file need to be refactored
+  // change to useRef
+  // don't need to send req with hash just send raw
 
   const { registerFirstName, setRegisterFirstName, registerLastName, setRegisterLastName, registerEmail, setRegisterEmail, registerPassword, setRegisterPassword, modal, setModal } = useStateContext();
 
@@ -25,8 +28,8 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let passwordSalt = bcrypt.genSaltSync(10);
-    let passwordHash = bcrypt.hashSync(registerPassword, passwordSalt);
+    let passwordSalt = null;
+    let passwordHash = null;
 
     axios.post(`http://localhost:8090/api/register`, {
         "first_name": registerFirstName,
