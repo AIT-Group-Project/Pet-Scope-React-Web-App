@@ -6,7 +6,7 @@ import Modal from './Modal';
 const NavLinks = ({title, route}) => (
     <NavLink
         to={route}
-        className='relative text-xl rounded-lg m-2 px-3 py-2 hover:bg-yellow-400 text-blue-700 dark:hover:bg-slate-500 dark:text-white'
+        className='relative text-xl rounded-lg m-2 px-3 py-2 hover:bg-emerald-600 text-black dark:hover:bg-slate-500 dark:text-white'
     >
         {title}
     </NavLink>
@@ -15,7 +15,7 @@ const NavLinks = ({title, route}) => (
 const Navbar = () => {
 
   return (
-    <div className='flex justify-between p-2 bg-green-500 dark:bg-slate-700 relative'>
+    <div className='flex justify-between p-2 bg-cyan-400 dark:bg-slate-700 relative'>
         <div className='relative'>
             <Modal />
         </div> 
