@@ -63,9 +63,15 @@ function PlayDateTimes(props) {
   const [selectedCalendarTime, setSelectedCalendarTime] = useState(null);
 
   const timeOptions = ['08:00 AM','09:00 AM','10:00 AM','2:00 PM','3:00 PM']
+  const [info, setInfo] = useState(false)
+
+  function displayInfo(e) {
+    setInfo(true);
+  }
 
   const handleSelectedTime = useCallback((value) => {
     setSelectedCalendarTime(value);
+    displayInfo();
   },[console.log(selectedCalendarTime)])
 
   const handleSubmitYes = async () => {
@@ -112,8 +118,18 @@ function PlayDateTimes(props) {
       </div>
 
       <div className='flex'>
-        <button className='p-1 m-1 dark:bg-slate-500 w-1/2' onClick={handleSubmitYes}>Yes</button>
-        <button className='p-1 m-1 dark:bg-slate-500 w-1/2' onClick={handleSubmitNo}>No</button>
+        <div> 
+        {info ? `Would You Like To Send This Invite ${selectedCalendarTime} ${props.date.toDateString()}` : null}
+        </div>
+        
+        {info ? <button className='p-1 m-1 dark:bg-slate-500 transform motion-safe:hover:scale-110 sm:hover:bg-green-500 w-1/2' 
+        onClick={handleSubmitYes}>Yes</button>
+        : null}
+
+        {info ? <button className='p-1 m-1 dark:bg-slate-500 transform motion-safe:hover:scale-110 sm:hover:bg-red-500 w-1/2' 
+        onClick={handleSubmitNo}>No</button>
+        : null}
+
       </div>
     </div>
   )
