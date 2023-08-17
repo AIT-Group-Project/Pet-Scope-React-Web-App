@@ -64,9 +64,24 @@ function PlayDateTimes(props) {
 
   const timeOptions = ['08:00 AM','09:00 AM','10:00 AM','2:00 PM','3:00 PM']
   const [info, setInfo] = useState(false)
+  const [user, setUserInfo] = useState(false)
+  const [timeInfo, setTimeInfo] = useState(true)
+  const usernameValue = ['Cameron','Kodee','Jarrod','Chris','Charles']
+  const [selectedUser, setSelectedUser] = useState(usernameValue[0].value);
 
   function displayInfo(e) {
     setInfo(true);
+  }
+  function displayuserInfo(e){
+    setUserInfo(true);
+    setInfo(false);
+    setTimeInfo(false);
+  }
+
+  const userSelection = event =>{
+    console.log(event.target.value);
+    setSelectedUser(event.target.value);
+    displayuserInfo();
   }
 
   const handleSelectedTime = useCallback((value) => {
@@ -99,34 +114,56 @@ function PlayDateTimes(props) {
 
   const handleSubmitNo = () => {
     console.log('handleNo')
+    window.location.reload(false)
   }
 
   return (
     <div>
-      <div>Please Select a Time</div>
       <div>
+      {timeInfo ?
+        'Please Select a Time'
+        : null}
+        </div>
+      <div>
+        
         {timeOptions.map(time => {
           return (
             <div>
+              {timeInfo ?
               <button 
                 className='dark:bg-slate-500 w-1/2 p-1 m-1 dark:focus:border-white focus:border-2'
                 onClick={(e) => handleSelectedTime(e.target.innerText)}
               >{time}</button>
+              : null}
             </div>  
           )
         })}
       </div>
 
-      <div className='flex'>
+      <div className='my-1'>
+        <div>
+        {info ? `Please Select A User ` : null}
+        {info ?
+        <select className= 'text-blue-600' onChange={userSelection} defaultValue="none">
+          <option value="none" disabled hidden> 
+            </option> 
+         {usernameValue.map(usernameValue => {
+           return (
+             <option value={usernameValue}> {usernameValue} </option>
+           )
+         })}
+        </select>
+        : null}
+        </div>
         <div> 
-        {info ? `Would You Like To Send This Invite ${selectedCalendarTime} ${props.date.toDateString()}` : null}
+        {user ? `Would You Like To Send ` +selectedUser+ ` This Invite ${selectedCalendarTime} ${props.date.toDateString()}` : null}
         </div>
         
-        {info ? <button className='p-1 m-1 dark:bg-slate-500 transform motion-safe:hover:scale-110 sm:hover:bg-green-500 w-1/2' 
+        {user ? <button className='p-1 m-1 dark:bg-slate-500 transform motion-safe:hover:scale-110 sm:hover:bg-green-500 w-1/2' 
         onClick={handleSubmitYes}>Yes</button>
         : null}
 
-        {info ? <button className='p-1 m-1 dark:bg-slate-500 transform motion-safe:hover:scale-110 sm:hover:bg-red-500 w-1/2' 
+        {user ? <button className='p-1 m-1 dark:bg-slate-500 transform motion-safe:hover:scale-110 sm:hover:bg-red-500 w-1/2' 
         onClick={handleSubmitNo}>No</button>
         : null}
 

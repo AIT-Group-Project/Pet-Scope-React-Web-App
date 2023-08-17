@@ -11,7 +11,7 @@ const PlayDateCalendar = () => {
 
   return (
     <div className='box-border p-3 border-4 items-center bg-emerald-400 dark:bg-slate-700 mx-auto app'>
-    <h1 className ='header'>Calendar</h1>
+    <h1>Calendar</h1>
     <div className="calendar-container">
         <Calendar 
         onChange={setDate} 
