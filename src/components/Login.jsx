@@ -1,30 +1,36 @@
-import React, { useRef } from 'react';
-import axios from 'axios';
+import React, { useContext, useRef } from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
+import AuthContext from '../contexts/AuthProvider';
+import axios from '../api/axios';
+const LOGIN_URL = '/auth';
 
 export default function Login() {
 
   const loginEmailElement = useRef('');
   const loginPasswordElement = useRef('');
   const {modal, setModal} = useStateContext();
+  const { setAuth } = useContext(AuthContext);
+  const { setActiveUser } = useStateContext();
+  
 
   const toggleModal = () => {
     setModal(!modal);
   };
   
-  const auth = async () => {
-    const data = {
-      email: loginEmailElement.current?.value,
-      password: loginPasswordElement.current?.value,
-    };
-    console.log('current auth data: ', data); // debug
+  const authentication = async () => {
+    const email = loginEmailElement.current?.value;
+    const password = loginPasswordElement.current?.value;
+    console.log('current auth data: ', email ,password); // debug
 
     try {
-      // add authToken to Bearer Token
-      const response = await axios.post(`http://localhost:3500/auth`, {
-        "email": data.email,
-        "password": data.password,
-      });
+      const response = await axios.post(LOGIN_URL,
+        JSON.stringify({email, password}),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true
+        }
+      );
+
       if (!response.ok) {
         if (response.status === 401) {
           // this means that the user is not authorized
@@ -41,23 +47,22 @@ export default function Login() {
     }
   };
 
-  const handleAuth = () => async (e) => {
+  const handleAuthentication = () => async (e) => {
     e.preventDefault();
 
     // res: accessToken  (res.data.accessToken)
     // res: refreshToken (cookie)
-    const resData = await auth();
+    const resData = await authentication();
 
     if (resData !== undefined) {
       console.log('resData: ', resData); // debug
-      
-      // add concept of a user 
-      // create authProvider context provider 
-      //  - set var accessToken
-      //  - set var user_id
-      //  - set var email
-      // todo store the users accessToken in memory only (security reasons)
-      // windows memory storage 
+
+      const accessToken = resData.accessToken;
+      const email = resData.resultEmail;
+      const userId = resData.resultUserId;
+
+      setAuth({accessToken, email, userId});
+      setActiveUser(true);
     }
 
     // closes login modal once user is logged in
@@ -77,7 +82,7 @@ export default function Login() {
           <input ref={loginPasswordElement} type='password' className='w-full p-1 my-1' required/>
         </label>
         <div className = 'relative text-xl text-center rounded-lg p-3 my-2 dark:bg-slate-500 dark:hover:bg-slate-500/[0.5]'>
-          <button type="submit" className='w-full rounded-lg dark:text-white' onClick={handleAuth()}>Submit</button>
+          <button type="submit" className='w-full rounded-lg dark:text-white' onClick={handleAuthentication()}>Submit</button>
         </div>
       </form>
     </div>
