@@ -42,7 +42,7 @@ function Imageslider() {
         setCurrentIndex(slideIndex);
       };
 
-    const styles = useState('hidden group-hover:block absolute top-[50%] -trnslate-x-0 trnslate-y-[50%] text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer');
+    const styles = useState('hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[50%] text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer');
 
   return (
     <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 block group dark:bg-slate-500'>
