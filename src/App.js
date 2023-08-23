@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css'
 import { Navbar, Footer } from './components';
-import { Home, Staff, Services, AboutUs } from './pages';
+import { Home, Staff, Services, AboutUs, UserProfile } from './pages';
 
 const App = () => {
 
@@ -26,6 +26,7 @@ const App = () => {
               <Route path='/staff' element={<Staff />} />
               <Route path='/services' element={<Services />} />
               <Route path='/about-us' element={<AboutUs />} />
+              <Route path='/user-profile' element={<UserProfile />} />
             </Routes>
           </div>
           <div>

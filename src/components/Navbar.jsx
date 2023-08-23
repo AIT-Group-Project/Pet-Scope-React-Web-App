@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Darkmode from './Darkmode';
 import Modal from './Modal';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const NavLinks = ({title, route}) => (
     <NavLink
@@ -13,6 +14,8 @@ const NavLinks = ({title, route}) => (
 );
 
 const Navbar = () => {
+    const { activeUser, setActiveUser } = useStateContext();
+    setActiveUser(true);
 
   return (
     <div className='flex justify-between p-2 bg-cyan-400 dark:bg-slate-700 relative'>
@@ -36,7 +39,20 @@ const Navbar = () => {
                 title={'About Us'}
                 route={'/about-us'}
             />
-
+            <div>
+            {activeUser ? (
+                <div>
+                    <NavLinks 
+                title={'Profile'}
+                route={'/user-profile'}
+            />
+                </div>
+            ) : (
+                <div>
+                    
+                </div>
+            )}
+            </div>
         </div>
         <div className='p-2 m-0'>
             <Darkmode />
