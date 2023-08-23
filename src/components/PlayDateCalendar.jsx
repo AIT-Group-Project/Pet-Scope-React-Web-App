@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
 import React from 'react';
-import Time from './PlayDateTime.jsx'
+import PlayDateTime from './PlayDateTime.jsx'
 import './Calendar.css';
 
 const PlayDateCalendar = () => {
@@ -18,7 +18,7 @@ const PlayDateCalendar = () => {
             minDate={new Date()} 
             onClickDay={() => setShowTime(true)}
           />
-          <Time
+          <PlayDateTime
             showTime={showTime}
             date={date}
           />

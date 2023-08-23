@@ -22,7 +22,7 @@ function PlayDateTimes(props) {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
-    }).split('/').reverse().join('-'); // This ensures the date format is in 'YYYY MM DD'
+    }).split('/').reverse().join('-'); // This ensures the date format is in 'YYYY-MM-DD'
     setSelectedPlaydateDate(formattedDate);
   }, [props.date]);
 
@@ -125,13 +125,13 @@ function PlayDateTimes(props) {
         <div>
           {showSelectionDropdown ?
             <>
-            <p>Please Select A User</p>
-            <select value={selectedUser} onChange={(e) => userSelection(e)} defaultValue="none">
-              <option value={'none'} disabled hidden></option>
-              {Object.entries(selectionOptions).map(([key, val]) => (
-                <option key={key} value={val} id={val.user_id} onClick={setOptionSelection(val)}>{`${val.first_name} ${val.last_name}`}</option>
-              ))}
-            </select>
+              <p>Please Select A User</p>
+              <select value={selectedUser} onChange={(e) => userSelection(e)} defaultValue="none">
+                <option value={'none'} disabled hidden></option>
+                {Object.entries(selectionOptions).map(([key, val]) => (
+                  <option key={key} value={val} id={val.user_id} onClick={setOptionSelection(val)}>{`${val.first_name} ${val.last_name}`}</option>
+                ))}
+              </select>
             </>
           : null}
         </div>
