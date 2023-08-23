@@ -15,9 +15,13 @@ export const ContextProvider = ({ children }) => {
 
     const [activeUser, setActiveUser] = useState(false);
 
+    const [showSelectionDropdown, setShowSelectionDropdown] = useState(false);
+    const [showSubmitPlaydate, setShowSubmitPlaydate] = useState(false);
+    const [showSelectPlaydateTime, setShowSelectPlaydateTime] = useState(true);
+
 
     return (
-        <StateContext.Provider value={{registerFirstName, setRegisterFirstName, registerLastName, setRegisterLastName, registerEmail, setRegisterEmail, registerPassword, setRegisterPassword, modal, setModal, activeUser, setActiveUser}}>
+        <StateContext.Provider value={{showSelectPlaydateTime, setShowSelectPlaydateTime,showSubmitPlaydate, setShowSubmitPlaydate,showSelectionDropdown, setShowSelectionDropdown,registerFirstName, setRegisterFirstName, registerLastName, setRegisterLastName, registerEmail, setRegisterEmail, registerPassword, setRegisterPassword, modal, setModal, activeUser, setActiveUser}}>
             {children}
         </StateContext.Provider>
     )

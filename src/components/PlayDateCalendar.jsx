@@ -7,21 +7,23 @@ import './Calendar.css';
 const PlayDateCalendar = () => {
   const [date, setDate] = useState(new Date())
   const [showTime, setShowTime] = useState(false)
-  
 
   return (
     <div className='box-border p-3 border-4 items-center bg-emerald-400 dark:bg-slate-700 mx-auto app'>
-    <h1>Calendar</h1>
-    <div className="calendar-container">
-        <Calendar 
-        onChange={setDate} 
-        value={date} 
-        minDate={new Date()} 
-        onClickDay={() => setShowTime(true)}/>
-   <Time showTime={showTime} date={date}/> 
+      <h1>Calendar</h1>
+        <div className="calendar-container">
+          <Calendar 
+            onChange={setDate} 
+            value={date} 
+            minDate={new Date()} 
+            onClickDay={() => setShowTime(true)}
+          />
+          <Time
+            showTime={showTime}
+            date={date}
+          />
+        </div>
     </div>
-    </div>
-    
   );
 }
 
