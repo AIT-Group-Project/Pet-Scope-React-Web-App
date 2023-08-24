@@ -19,7 +19,7 @@ function AppWithCallbackAfterRender() {
 root.render(
   <ContextProvider>
     <AuthProvider>
-      <AppWithCallbackAfterRender />
+        <AppWithCallbackAfterRender />
     </AuthProvider>
   </ContextProvider>
 );

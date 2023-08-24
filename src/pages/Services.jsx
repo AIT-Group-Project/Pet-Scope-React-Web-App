@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { PlayDateContextProvider } from '../contexts/PlayDateContextProvider';
+import { PDCalendar, PDTimeSelect } from '../components';
 
 const Services = () => {
   return (
-    <div>Services</div>
+    <div>
+      <PlayDateContextProvider>
+        <PDCalendar />
+        <PDTimeSelect />
+      </PlayDateContextProvider>
+    </div>
   )
 }
 
-export default Services
+export default Services;
