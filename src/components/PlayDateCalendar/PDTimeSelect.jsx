@@ -5,6 +5,7 @@ const PDTimeSelect = () => {
     const timeOptions = ['08:00 AM','09:00 AM','10:00 AM','2:00 PM','3:00 PM'];
     const timeDatabaseFormatted = ['08:00:00','09:00:00','10:00:00','14:00:00','15:00:00'];
     const { setSelectedTime } = useContext(PlayDateContext);
+    const btnStyle = 'block mx-auto px-5 py-1 m-1 w-full dark:bg-slate-200 transform motion-safe:hover:scale-110'
 
     const handleTimeSelect = (btnText) => {
         const v1 = timeOptions.indexOf(btnText);
@@ -15,13 +16,13 @@ const PDTimeSelect = () => {
     return (
         <div className='w-full flex'>
             <div className='mx-auto m-2'>
-                <p>Please Select a Time</p>
+                <p className='pb-2 px-2.5 font-semibold text-xl dark:text-white'>Please Select a Time</p>
                 <>
                     {timeOptions.map((time, index) => {
                         return(
                             <button
                                 key={index}
-                                className='block mx-auto'
+                                className={`${btnStyle}`}
                                 onClick={(e) => handleTimeSelect(e.target.innerText)}
                             >{time}</button>
                         )
@@ -30,6 +31,6 @@ const PDTimeSelect = () => {
             </div>
         </div>
     )
-}
+};
 
 export default PDTimeSelect;
