@@ -11,6 +11,7 @@ const PDReceiverDropdown = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+
         const getAllUsers = async () => {
             if (!auth.accessToken) {
                 console.error("Access token is not available.");
@@ -37,7 +38,8 @@ const PDReceiverDropdown = () => {
         };
 
         getAllUsers();
-    }, []);
+
+    }, [auth.accessToken, setAllUsersList]);
 
 
     return (
