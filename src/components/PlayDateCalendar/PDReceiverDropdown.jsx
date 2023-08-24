@@ -1,4 +1,4 @@
-import React, {  useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../contexts/AuthProvider';
 import PlayDateContext from '../../contexts/PlayDateContextProvider';
 import axios from '../../api/axios';
