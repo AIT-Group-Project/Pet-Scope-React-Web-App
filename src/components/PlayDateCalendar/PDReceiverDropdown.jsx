@@ -38,7 +38,7 @@ const PDReceiverDropdown = () => {
                     const newAccessTokenResponse = await axios.get(REFRESH_URL, {
                         withCredentials: true 
                     })
-                        // when setting a single value in for a state of object type you must destructure the current object or else it will overwrite the state with a new object only holding the single value eg.{[key,val]}
+                        // when setting a single value for a state of object type you must destructure the current object or else it will overwrite the state with a new object only holding the single value eg.{[key,val]}
                     setAuth({...auth, accessToken: newAccessTokenResponse.data.accessToken});
                     console.log('new accessToken'); // debug
                 }
