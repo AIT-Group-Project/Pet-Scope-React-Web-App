@@ -8,7 +8,7 @@ const PDSubmit = () => {
     
     const resetCalendar = () => {
         // set calendar states back to default
-    }
+    };
 
     return (
         <div className='w-full flex'>

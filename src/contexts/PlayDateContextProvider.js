@@ -6,7 +6,8 @@ const PlayDateContext = createContext();
 export const PlayDateContextProvider = ({ children }) => {
     const [selectedTime, setSelectedTime] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
-    const [allUsersList, setAllUsersList] = useState([]);
+    const [selectedReceiver, setSelectedReceiver] = useState(null);
+    const [allUsersMap, setAllUsersMap] = useState([]);
 
     return (
         <PlayDateContext.Provider value={{ 
@@ -14,8 +15,10 @@ export const PlayDateContextProvider = ({ children }) => {
             setSelectedTime,
             selectedDate,
             setSelectedDate,
-            allUsersList,
-            setAllUsersList
+            allUsersMap,
+            setAllUsersMap,
+            selectedReceiver,
+            setSelectedReceiver
         }}>
             {children}
         </PlayDateContext.Provider>

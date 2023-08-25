@@ -3,6 +3,8 @@
         "Contactsbox",
         "googlemaps",
         "Imageslider",
-        "tailwindcss"
+        "playdate",
+        "tailwindcss",
+        "vetdata"
     ]
 }
