@@ -16,7 +16,7 @@ const PDTimeSelect = () => {
     return (
         <div className='w-full flex'>
             <div className='mx-auto m-2'>
-                <p className='pb-2 px-2.5 font-semibold text-xl dark:text-white'>Please Select a Time</p>
+                <p className='pb-1 px-2.5 font-semibold text-xl dark:text-white'>Please Select a Time</p>
                 <>
                     {timeOptions.map((time, index) => {
                         return(

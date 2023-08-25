@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import AuthContext from '../../contexts/AuthProvider';
 import PlayDateContext from '../../contexts/PlayDateContextProvider';
 import axios from '../../api/axios';
@@ -10,6 +10,7 @@ const PDReceiverDropdown = () => {
     const { auth, setAuth } = useContext(AuthContext);
     const { allUsersMap, setAllUsersMap, setSelectedReceiver } = useContext(PlayDateContext);
     const [ loading, setLoading ] = useState(true);
+    const selectedOption = useRef(null)
 
     // the useEffect hook allows execution of code when a component is mounted, rendered or dependent state is updated. the dependent states are defined at the end of the useEffect in a dependencies array. if you want the useEffect to only execute on mount leave dependencies array empty, and if you want useEffect to run on mount and every render of the component remove the dependencies array
     useEffect(() => {
@@ -50,11 +51,6 @@ const PDReceiverDropdown = () => {
         // when states in the dependencies array change execute useEffect()
     }, [auth, setAuth, setAllUsersMap]);
 
-    const handleOptionSelect = (event) => {
-        // sets state to the user_id of the receiver of the playdate
-        setSelectedReceiver(event.target.id);
-    };
-
     return (
         <div className='w-full flex'>
             <div className='mx-auto m-2'>
@@ -62,10 +58,10 @@ const PDReceiverDropdown = () => {
                     <div>Loading...</div>
                     ) : (
                     <div>
-                        <p>Select a User</p>
-                        <select onChange={handleOptionSelect}>
+                        <p className='font-semibold text-xl dark:text-white text-center'>Select a User</p>
+                        <select ref={selectedOption} onClick={() => setSelectedReceiver(selectedOption.current.value)} className='py-1 px-5'>
                             {Object.entries(allUsersMap).map(([key, val]) => (
-                            <option key={key} value={val} id={val.user_id}>{`${val.first_name} ${val.last_name}`}</option>
+                            <option key={key} value={val.user_id}>{`${val.first_name} ${val.last_name}`}</option>
                         ))}
                         </select>
                     </div>

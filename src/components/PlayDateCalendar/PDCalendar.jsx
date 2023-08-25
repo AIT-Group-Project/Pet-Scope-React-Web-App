@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import PlayDateContext from '../../contexts/PlayDateContextProvider';
 import { PDTimeSelect, PDReceiverDropdown, PDSubmit } from '..';
 
 const PDCalendar = () => {
-    const { selectedDate, setSelectedDate } = useContext(PlayDateContext);
-    const today = new Date();
+    const { selectedDate, setSelectedDate, selectedReceiver } = useContext(PlayDateContext);
+    const today = new Date(); // stores todays date
+    const [showTimeOptions, setShowTimeOptions] = useState(false);
 
     return (
         <div className='w-full flex'>
@@ -16,10 +17,16 @@ const PDCalendar = () => {
                     onChange={setSelectedDate}
                     value={selectedDate}
                     minDate={today} // makes sure that the calendar only allows future dates to be selected
+                    onClickDay={() => setShowTimeOptions(true)}
                 />
-                <PDTimeSelect />
-                <PDReceiverDropdown />
-                <PDSubmit />
+                {showTimeOptions ? (
+                    <>
+                        <PDTimeSelect />
+                        <PDReceiverDropdown />
+                        <PDSubmit value={selectedReceiver}/>
+                    </>
+                    ) : (<></>)
+                }
             </div>
         </div>
     )
