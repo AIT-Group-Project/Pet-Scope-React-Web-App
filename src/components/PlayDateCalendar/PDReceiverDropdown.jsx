@@ -22,12 +22,8 @@ const PDReceiverDropdown = () => {
             }
             try {
                 // get json format of all users in the vetdata.users table {user_id, first_name, last_name}
-                const allUsersResponse = await axios.get(USERS_URL,
-                    {
-                        headers: { 
-                            // 'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${auth.accessToken}`
-                        },
+                const allUsersResponse = await axios.get(USERS_URL, {
+                        headers: {'Authorization': `Bearer ${auth.accessToken}`},
                         withCredentials: true
                 })
                 console.log('response', allUsersResponse); // debug
@@ -39,11 +35,9 @@ const PDReceiverDropdown = () => {
                 // handle getting new accessToken from refresh endpoint using cookie.jwt: refreshToken
                 if (error.response.status === 403) {
                     console.log('403 res /users') // debug
-                    const newAccessTokenResponse = await axios.get(REFRESH_URL,
-                        {
-                            // headers: { 'Content-Type': 'application/json' },
-                            withCredentials: true
-                        })
+                    const newAccessTokenResponse = await axios.get(REFRESH_URL, {
+                        withCredentials: true 
+                    })
                         // when setting a single value in an state of object type you must destructure the current object or else it will overwrite the state with a new object only holding the single value eg.{[key,val]}
                     setAuth({...auth, accessToken: newAccessTokenResponse.data.accessToken});
                     console.log('new accessToken'); // debug
