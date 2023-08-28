@@ -34,9 +34,13 @@ const PDSubmit = (props) => {
     const resetCalendar = () => {
         // set calendar states back to default
         setShowSubmitMessage(false);
-        
+
     };
 
+    // need to display the actual name and 12h time may need separate props to carry the first & last name to be displayed in this component
+    // currently
+    // props.receiver is the user_id
+    // props.time is in 24h time 
     return (
         <>
             {showSubmitMessage ? (
