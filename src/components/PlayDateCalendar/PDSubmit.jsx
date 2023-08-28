@@ -55,11 +55,11 @@ const PDSubmit = (props) => {
                         <div className='w-full flex'>
                             <div className='mx-auto m-2'>
                                 <PDSubmitButton 
-                                    innerText={'Yes'}
+                                    innerText={'Submit'}
                                     customFunc={handleSubmit}
                                 />
                                 <PDSubmitButton 
-                                    innerText={'No'}
+                                    innerText={'Reset'}
                                     customFunc={resetCalendar}
                                 />
                             </div>
