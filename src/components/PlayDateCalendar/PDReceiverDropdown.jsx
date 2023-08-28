@@ -40,11 +40,13 @@ const PDReceiverDropdown = () => {
                 if (error.response.status === 403) {
                     console.log('entering status === 403 response handle') // debug
                     try {
+                        // sends all cookies with the request and if the cookie.jwt refreshToken 
+                        // is valid a new accessToken will be issued in the response
                         const newAccessTokenResponse = await axios.get(REFRESH_URL, {
                             withCredentials: true 
                         })
-                    // when setting a single value for a state of object type
-                    // you must destructure the current object or else it will
+                    // when setting a single value in a state of object type
+                    // you must destructure/spread the current object or else it will
                     // overwrite the state with a new object only holding the single value eg.{[key,val]}
                     setAuth({...auth, accessToken: newAccessTokenResponse.data.accessToken});
                     console.log('new Access Token acquired'); // debug
