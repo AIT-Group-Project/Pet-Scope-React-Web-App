@@ -33,6 +33,7 @@ const PDSubmit = (props) => {
     
     const resetCalendar = () => {
         // set calendar states back to default
+        // showTimeOptions toggle in PDCalendar.jsx need to add to playdate context to toggle from this component 
         setShowSubmitMessage(false);
 
     };
