@@ -3,8 +3,14 @@ import { Selector } from '../components'
 
 const UserProfile = () => {
   return (
-    <div>UserProfile
-      <Selector />
+    <div className='grid-cols-1 grid-rows-1'>
+      <Selector classname="grid-cols-1 grid-rows-1" />
+      <div>
+      <Selector classname="grid-cols-1 grid-rows-1" />
+      <div>
+      <Selector classname="grid-cols-1 grid-rows-1" />
+      </div>
+      </div>
     </div>
   )
 }

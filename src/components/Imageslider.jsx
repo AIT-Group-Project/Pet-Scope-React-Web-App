@@ -45,7 +45,7 @@ function Imageslider() {
     const styles = useState('hidden group-hover:block absolute top-[50%] -trnslate-x-0 trnslate-y-[50%] text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer');
 
   return (
-    <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 block group dark:bg-slate-500'>
+    <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group dark:bg-slate-500'>
         <div style={{backgroundImage: `url(${slides[currentIndex].url})`}} className='w-full h-full rounded-2xl bg-center bg-cover duration-500'></div>
         {/* Left Arrow */}
         <div className={`${styles} left-5`}>

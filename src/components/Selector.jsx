@@ -1,18 +1,54 @@
 import React from 'react'
-import { useState } from 'react';
+import { Listbox } from '@headlessui/react'
+import { CheckIcon } from '@heroicons/react/20/solid'
+import { useState } from 'react'
 
+const dogbreeds = [
+  {id: 1, name: 'Cavapoo'},
+  {id: 2, name: 'Golden Retriever'},
+  {id: 3, name: 'French Bulldog'},
+  {id: 4, name: 'Labrador Retriever'},
+  {id: 5, name: 'Miniature Dachshund'},
+  {id: 6, name: 'Maltese'},
+  {id: 7, name: 'Staffordshire Bull Terrier'},
+  {id: 8, name: 'Border Collie'},
+  {id: 9, name: 'German Shpeherd'},
+  {id: 10, name: 'Goldendoodle'},
+]
 
-const Selector = () => {
+function Selector() {
+  const [selectedPerson, setSelectedPerson] = useState(dogbreeds[0])
 
-  const dropdownstyle = useState('p-2 w-10 text-sm hover:bg-sky-600 hover:text-white')
   return (
-    <select className='text-center pt-5 center w-32 h-32 ' class="ui selection dropdown">
-  <option className={`${dropdownstyle}`} value="">Select a Pet</option>
-  <option className={`${dropdownstyle}`} value="0">Cat</option>
-  <option className={`${dropdownstyle}`} value="1">Dog</option>
-</select>
-
+    <Listbox value={selectedPerson} onChange={setSelectedPerson}>
+      <Listbox.Button>{selectedPerson.name}</Listbox.Button>
+      <Listbox.Options>
+        {dogbreeds.map((person) => (
+          <Listbox.Option
+            key={person.id}
+            value={person}
+            className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black"
+          >
+            <CheckIcon className="hidden ui-selected:block" />
+            {person.name}
+          </Listbox.Option>
+        ))}
+      </Listbox.Options>
+    </Listbox>
   )
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 export default Selector
+
