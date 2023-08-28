@@ -6,15 +6,18 @@ const USERS_URL = '/users';
 const REFRESH_URL = '/refresh';
 
 const PDReceiverDropdown = () => {
-    // state variables
+    // components state variables
     const { auth, setAuth } = useContext(AuthContext);
     const { allUsersMap, setAllUsersMap, setSelectedReceiver } = useContext(PlayDateContext);
     const [ loading, setLoading ] = useState(true);
     const selectedOption = useRef(null)
 
-    // the useEffect hook allows execution of code when a component is mounted, rendered or dependent state is updated. the dependent states are defined at the end of the useEffect in a dependencies array. if you want the useEffect to only execute on mount leave dependencies array empty, and if you want useEffect to run on mount and every render of the component remove the dependencies array
+    // the useEffect hook allows execution of code when a component is mounted, rendered or dependent state is updated.
+    // the dependent states are defined at the end of the useEffect in a dependencies array.
+    // if you want the useEffect to only execute on mount leave dependencies array empty,
+    // and if you want useEffect to run on mount and every render of the component remove the dependencies array
     useEffect(() => {
-        // declare function
+        // declare async function
         const getAllUsers = async () => {
             // Handle missing token
             if (!auth.accessToken) {
@@ -24,8 +27,8 @@ const PDReceiverDropdown = () => {
             try {
                 // get json format of all users in the vetdata.users table {user_id, first_name, last_name}
                 const allUsersResponse = await axios.get(USERS_URL, {
-                        headers: {'Authorization': `Bearer ${auth.accessToken}`},
-                        withCredentials: true
+                    headers: {'Authorization': `Bearer ${auth.accessToken}`},
+                    withCredentials: true
                 })
                 console.log('response', allUsersResponse); // debug
                 // take the response json of all the users and store this in state setAllUsersMap
@@ -35,13 +38,19 @@ const PDReceiverDropdown = () => {
             } catch (error) {
                 // handle getting new accessToken from refresh endpoint using cookie.jwt: refreshToken
                 if (error.response.status === 403) {
-                    console.log('403 res /users') // debug
-                    const newAccessTokenResponse = await axios.get(REFRESH_URL, {
-                        withCredentials: true 
-                    })
-                        // when setting a single value for a state of object type you must destructure the current object or else it will overwrite the state with a new object only holding the single value eg.{[key,val]}
+                    console.log('entering status === 403 response handle') // debug
+                    try {
+                        const newAccessTokenResponse = await axios.get(REFRESH_URL, {
+                            withCredentials: true 
+                        })
+                    // when setting a single value for a state of object type
+                    // you must destructure the current object or else it will
+                    // overwrite the state with a new object only holding the single value eg.{[key,val]}
                     setAuth({...auth, accessToken: newAccessTokenResponse.data.accessToken});
-                    console.log('new accessToken'); // debug
+                    console.log('new Access Token acquired'); // debug
+                    } catch (error) {
+                        console.error('Failed to get new Access Token', error);
+                    }
                 }
                 console.error('Failed to get users', error);
             }

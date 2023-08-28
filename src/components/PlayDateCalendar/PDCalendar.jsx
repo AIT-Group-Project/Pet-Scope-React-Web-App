@@ -5,7 +5,7 @@ import PlayDateContext from '../../contexts/PlayDateContextProvider';
 import { PDTimeSelect, PDReceiverDropdown, PDSubmit } from '..';
 
 const PDCalendar = () => {
-    const { selectedDate, setSelectedDate, selectedReceiver } = useContext(PlayDateContext);
+    const { selectedDate, setSelectedDate, selectedReceiver, selectedTime } = useContext(PlayDateContext);
     const today = new Date(); // stores todays date
     const [showTimeOptions, setShowTimeOptions] = useState(false);
 
@@ -23,7 +23,11 @@ const PDCalendar = () => {
                     <>
                         <PDTimeSelect />
                         <PDReceiverDropdown />
-                        <PDSubmit value={selectedReceiver}/>
+                        <PDSubmit 
+                            date={selectedDate}
+                            time={selectedTime}
+                            receiver={selectedReceiver}
+                        />
                     </>
                     ) : (<></>)
                 }
