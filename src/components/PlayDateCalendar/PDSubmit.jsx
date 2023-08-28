@@ -48,7 +48,9 @@ const PDSubmit = (props) => {
                 <>
                     <div className='p-3 dark:bg-slate-700'>
                         <p className='text-center dark:text-white'>
-                            Would you like to send a Play Date Request to <br></br> {`${props.receiver}`} at the time {`${props.time}`}
+                            Would you like to send a Play Date Request to 
+                            <br></br> {`${props.receiver}`} at the time {`${props.time}`} on
+                            <br></br> {`${props.date}`}
                         </p>
                         <div className='w-full flex'>
                             <div className='mx-auto m-2'>

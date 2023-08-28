@@ -13,7 +13,8 @@ const PDCalendar = () => {
         <div className='w-full flex'>
             <div className='mx-auto m-2'>
                 <p className='pb-2 px-2.5 font-semibold text-xl dark:text-white text-center'>Play Date Calendar</p>
-                <Calendar 
+                <Calendar
+                    className='mx-auto'
                     onChange={setSelectedDate}
                     value={selectedDate}
                     minDate={today} // makes sure that the calendar only allows future dates to be selected
