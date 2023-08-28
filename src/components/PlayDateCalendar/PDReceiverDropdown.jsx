@@ -47,7 +47,7 @@ const PDReceiverDropdown = () => {
                         })
                     // when setting a single value in a state of object type
                     // you must destructure/spread the current object or else it will
-                    // overwrite the state with a new object only holding the single value eg.{[key,val]}
+                    // overwrite the state with a new object only holding only the single value eg.{[key,val]}
                     setAuth({...auth, accessToken: newAccessTokenResponse.data.accessToken});
                     console.log('new Access Token acquired'); // debug
                     } catch (error) {
