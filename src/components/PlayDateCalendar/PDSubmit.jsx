@@ -33,12 +33,12 @@ const PDSubmit = (props) => {
     
     const resetCalendar = () => {
         // set calendar states back to default
-        // showTimeOptions toggle in PDCalendar.jsx need to add to playdate context to toggle from this component 
+        // showTimeOptions toggle in PDCalendar.jsx needs to be added to playdate context provider to toggle from this component 
         setShowSubmitMessage(false);
 
     };
 
-    // need to display the actual name and 12h time may need separate props to carry the first & last name to be displayed in this component
+    // need to display the actual name and 12h time may need separate props to carry the first & last name values to be displayed in this component
     // currently
     // props.receiver is the user_id
     // props.time is in 24h time 
