@@ -5,4 +5,4 @@ export { default as Map } from './Map';
 export { default as Contactsbox } from './Contactsbox';
 export { default as ContactCards } from './ContactCards';
 export { default as Imageslider } from './Imageslider';
-export { default as Selector } from './Selector';
+export { default as ProfileInfoBox } from './ProfileInfoBox';
