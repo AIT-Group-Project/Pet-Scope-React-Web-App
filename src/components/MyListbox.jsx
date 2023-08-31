@@ -11,7 +11,7 @@ const people = [
     {id: 6, name: 'Maltese'},
     {id: 7, name: 'Staffordshire Bull Terrier'},
     {id: 8, name: 'Border Collie'},
-    {id: 9, name: 'German Shpeherd'},
+    {id: 9, name: 'German Shepherd'},
     {id: 10, name: 'Goldendoodle'},
 ]
 
