@@ -36,14 +36,14 @@ const PDSubmit = (props) => {
         console.log('Play Date data:', data) // debug
         try {
             const response = await axios.post(PLAYDATES_URL,
-            JSON.stringify({...data}),
-              {
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${auth.accessToken}`
-                },
-                withCredentials: true
-              }
+                JSON.stringify({...data}),
+                {
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${auth.accessToken}`
+                    },
+                    withCredentials: true
+                }
             );
             console.log('responseSubmit', response)
             resetCalendar();
