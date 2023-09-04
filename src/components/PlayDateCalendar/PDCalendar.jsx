@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import PlayDateContext from '../../contexts/PlayDateContextProvider';
@@ -7,7 +7,6 @@ import { PDTimeSelect, PDReceiverDropdown, PDSubmit } from '..';
 const PDCalendar = () => {
     const { selectedDate, setSelectedDate, selectedReceiver, selectedTime, showTimeOptions, setShowTimeOptions } = useContext(PlayDateContext);
     const today = new Date(); // stores todays date
-    const test = useState(false);
 
     return (
         <div className='w-full flex'>
