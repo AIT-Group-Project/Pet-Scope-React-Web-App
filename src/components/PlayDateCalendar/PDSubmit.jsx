@@ -1,10 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
 import PlayDateContext from '../../contexts/PlayDateContextProvider';
 import { PDSubmitButton } from '..';
+import AuthContext from '../../contexts/AuthProvider';
+import axios from '../../api/axios';
+const PLAYDATES_URL = '/playdate';
 
 const PDSubmit = (props) => {
     const { selectedReceiver } = useContext(PlayDateContext);
     const [showSubmitMessage, setShowSubmitMessage] = useState(false);
+    const { auth } = useContext(AuthContext);
 
     useEffect(() => {
         if (selectedReceiver !== null) {
@@ -33,14 +37,32 @@ const PDSubmit = (props) => {
     //     return time.join (''); // return adjusted time or original string
     //   }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const data = {
             date: formatDate(props.date),
-            time: props.time,
-            receiver: props.receiver,
+            time: props.time.database,
+            receiver: props.receiver.database,
+            sender: auth.userId
         }
         console.log('Play Date data:', data) // debug
         // get all info for a PlayDate and make an axios request to create a play date in the DB
+        try {
+            const response = await axios.post(PLAYDATES_URL,
+              JSON.stringify({...data}),
+              {
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${auth.accessToken}`
+                },
+                withCredentials: true
+              }
+            );
+            console.log('responseSubmit', response)
+        } catch (error) {
+            console.error('failed to submit playdate', error);
+        }
+
+
     };
     
     const resetCalendar = () => {
