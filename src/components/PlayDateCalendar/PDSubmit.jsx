@@ -26,6 +26,7 @@ const PDSubmit = (props) => {
     }
 
     const handleSubmit = async () => {
+        // get all info for a PlayDate and make an axios request to create a play date in the DB
         const data = {
             date: formatDate(props.date),
             time: props.time.database,
@@ -33,7 +34,6 @@ const PDSubmit = (props) => {
             sender: auth.userId
         }
         console.log('Play Date data:', data) // debug
-        // get all info for a PlayDate and make an axios request to create a play date in the DB
         try {
             const response = await axios.post(PLAYDATES_URL,
               JSON.stringify({...data}),
@@ -56,7 +56,6 @@ const PDSubmit = (props) => {
     
     const resetCalendar = () => {
         // set calendar states back to default
-        // showTimeOptions toggle in PDCalendar.jsx needs to be added to playdate context provider to toggle from this component 
         setShowSubmitMessage(false);
         setShowRecivier(false);
         setShowTimeOptions(false);
@@ -65,10 +64,6 @@ const PDSubmit = (props) => {
         setSelectedDate(null);
     };
 
-    // need to display the actual name and 12h time may need separate props to carry the first & last name values to be displayed in this component
-    // currently
-    // props.receiver is the user_id
-    // props.time is in 24h time 
     return (
         <>
             {showSubmitMessage ? (
