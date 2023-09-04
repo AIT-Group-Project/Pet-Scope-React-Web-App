@@ -36,7 +36,7 @@ const PDSubmit = (props) => {
         console.log('Play Date data:', data) // debug
         try {
             const response = await axios.post(PLAYDATES_URL,
-              JSON.stringify({...data}),
+            JSON.stringify({...data}),
               {
                 headers: { 
                     'Content-Type': 'application/json',

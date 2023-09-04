@@ -4,7 +4,7 @@ import PlayDateContext from '../../contexts/PlayDateContextProvider';
 const PDTimeSelect = () => {
     const timeOptions = ['08:00 AM','09:00 AM','10:00 AM','2:00 PM','3:00 PM'];
     const timeDatabaseFormatted = ['08:00:00','09:00:00','10:00:00','14:00:00','15:00:00'];
-    const { setSelectedTime, showRecivier, setShowRecivier } = useContext(PlayDateContext);
+    const { setSelectedTime, setShowRecivier } = useContext(PlayDateContext);
     const btnStyle = 'block mx-auto px-5 py-1 m-1 w-full dark:bg-slate-200 transform motion-safe:hover:scale-110'
 
     const handleTimeSelect = (btnText) => {
