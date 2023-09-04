@@ -6,12 +6,12 @@ import axios from '../../api/axios';
 const PLAYDATES_URL = '/playdate';
 
 const PDSubmit = (props) => {
-    const { selectedReceiver } = useContext(PlayDateContext);
+    const { selectedReceiver, setSelectedReceiver, setSelectedDate, setSelectedTime, setShowRecivier, setShowTimeOptions } = useContext(PlayDateContext);
     const [showSubmitMessage, setShowSubmitMessage] = useState(false);
     const { auth } = useContext(AuthContext);
 
     useEffect(() => {
-        if (selectedReceiver !== null) {
+        if (selectedReceiver.display && selectedReceiver.database !== null) {
             setShowSubmitMessage(true);
         }
     }, [selectedReceiver])
@@ -58,6 +58,7 @@ const PDSubmit = (props) => {
               }
             );
             console.log('responseSubmit', response)
+            resetCalendar();
         } catch (error) {
             console.error('failed to submit playdate', error);
         }
@@ -69,7 +70,11 @@ const PDSubmit = (props) => {
         // set calendar states back to default
         // showTimeOptions toggle in PDCalendar.jsx needs to be added to playdate context provider to toggle from this component 
         setShowSubmitMessage(false);
-
+        setShowRecivier(false);
+        setShowTimeOptions(false);
+        setSelectedReceiver({display: null, database: null});
+        setSelectedTime({display: null, database: null});
+        setSelectedDate(null);
     };
 
     // need to display the actual name and 12h time may need separate props to carry the first & last name values to be displayed in this component

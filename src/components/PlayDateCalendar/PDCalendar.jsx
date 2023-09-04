@@ -5,9 +5,9 @@ import PlayDateContext from '../../contexts/PlayDateContextProvider';
 import { PDTimeSelect, PDReceiverDropdown, PDSubmit } from '..';
 
 const PDCalendar = () => {
-    const { selectedDate, setSelectedDate, selectedReceiver, selectedTime } = useContext(PlayDateContext);
+    const { selectedDate, setSelectedDate, selectedReceiver, selectedTime, showTimeOptions, setShowTimeOptions } = useContext(PlayDateContext);
     const today = new Date(); // stores todays date
-    const [showTimeOptions, setShowTimeOptions] = useState(false);
+    const test = useState(false);
 
     return (
         <div className='w-full flex'>
