@@ -32,8 +32,8 @@ const Navbar = () => {
                 route={'/staff'}
             />
             <NavLinks 
-                title={'Services'}
-                route={'/services'}
+                title={'PlayDate'}
+                route={'/playdate'}
             />
             <NavLinks 
                 title={'About Us'}
