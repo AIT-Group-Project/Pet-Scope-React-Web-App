@@ -15,11 +15,11 @@ const NavLinks = ({title, route}) => (
 
 const Navbar = () => {
     const { activeUser, setActiveUser } = useStateContext();
-    setActiveUser(true);
+ //  setActiveUser(true); //debug
 
   return (
     <div className='flex justify-between p-2 bg-cyan-400 dark:bg-slate-700 relative'>
-        <div className='relative'>
+        <div className=' relative'>
             <Modal />
         </div> 
         <div className='flex'>

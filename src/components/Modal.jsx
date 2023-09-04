@@ -50,7 +50,7 @@ export default function Modal() {
             </div>
 
             {modal && (
-                <div className='-screen h-screen fixed inset-0 z-1000'>
+                <div className='-screen h-screen fixed inset-0 z-50'>
                     <div onClick={toggleModal} className='w-screen h-screen fixed inset-0 bg-black/[0.8]'></div>
                     <div className='fixed -translate-x-2/4 -translate-y-2/4 leading-[1.4] max-w-[700px] min-w-[400px] px-7 py-3.5 rounded-[3px] left-2/4 top-[40%] bg-slate-200 dark:bg-slate-700'>
                         <div className='inline'>

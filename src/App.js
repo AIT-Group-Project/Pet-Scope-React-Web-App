@@ -8,7 +8,7 @@ import { Home, Staff, Services, AboutUs, UserProfile } from './pages';
 const App = () => {
 
   return (
-    <div>
+    <div className='overflow-hidden min-w-[690px]'>
       <BrowserRouter>
         <div>
           <div className='w-full'>

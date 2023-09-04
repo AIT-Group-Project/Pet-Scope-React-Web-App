@@ -3,8 +3,10 @@ import { ProfileInfoBox } from '../components'
 
 const UserProfile = () => {
   return (
-    <div>
-      <ProfileInfoBox  />
+    <div className='flex'>
+      <div className='w-full'>
+        <ProfileInfoBox  />
+      </div>
 
      
     </div>
