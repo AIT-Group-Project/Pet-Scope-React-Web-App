@@ -62,6 +62,11 @@ const PDReceiverDropdown = () => {
         // when states in the dependencies array change execute useEffect()
     }, [auth, setAuth, setAllUsersMap]);
 
+    const handleSelectedRecivier = (id) => {
+        let v1 = selectedOption.current.value.split('|');
+        setSelectedReceiver({display: v1[0], database: v1[1]});
+    };
+
     return (
         <div className='w-full flex'>
             <div className='mx-auto m-2'>
@@ -70,9 +75,9 @@ const PDReceiverDropdown = () => {
                     ) : (
                     <div>
                         <p className='font-semibold text-xl dark:text-white text-center'>Select a User</p>
-                        <select ref={selectedOption} onClick={() => setSelectedReceiver(selectedOption.current.value)} className='py-1 px-5'>
+                        <select ref={selectedOption} onClick={(e) => handleSelectedRecivier(e.target.id)} className='py-1 px-5'>
                             {Object.entries(allUsersMap).map(([key, val]) => (
-                            <option key={key} value={val.user_id}>{`${val.first_name} ${val.last_name}`}</option>
+                            <option key={key} value={`${val.first_name} ${val.last_name}|${val.user_id}`}>{`${val.first_name} ${val.last_name}`}</option>
                         ))}
                         </select>
                     </div>

@@ -21,6 +21,18 @@ const PDSubmit = (props) => {
         return newDate;
     }
 
+    // function timeConverter (time) {
+    //     // Check correct time format and split into components
+    //     time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+      
+    //     if (time.length > 1) { // If time format correct
+    //       time = time.slice (1);  // Remove full string match value
+    //       time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+    //       time[0] = +time[0] % 12 || 12; // Adjust hours
+    //     }
+    //     return time.join (''); // return adjusted time or original string
+    //   }
+
     const handleSubmit = () => {
         const data = {
             date: formatDate(props.date),
@@ -49,8 +61,8 @@ const PDSubmit = (props) => {
                     <div className='p-3 dark:bg-slate-700'>
                         <p className='text-center dark:text-white'>
                             Would you like to send a Play Date Request to 
-                            <br></br> {`${props.receiver}`} at the time {`${props.time}`} on
-                            <br></br> {`${props.date}`}
+                            <br></br> {`${props.receiver.display}`} at the time {props.time.display} on
+                            <br></br> {`${props.date.toDateString()}`}
                         </p>
                         <div className='w-full flex'>
                             <div className='mx-auto m-2'>

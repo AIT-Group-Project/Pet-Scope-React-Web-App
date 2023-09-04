@@ -10,7 +10,7 @@ const PDTimeSelect = () => {
     const handleTimeSelect = (btnText) => {
         const v1 = timeOptions.indexOf(btnText);
         const v2 = timeDatabaseFormatted[v1];
-        setSelectedTime(v2);
+        setSelectedTime({display: btnText, database: v2});
     }
 
     return (

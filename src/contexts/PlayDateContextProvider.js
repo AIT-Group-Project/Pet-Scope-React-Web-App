@@ -4,9 +4,9 @@ import { createContext, useState } from "react";
 const PlayDateContext = createContext();
 
 export const PlayDateContextProvider = ({ children }) => {
-    const [selectedTime, setSelectedTime] = useState(null);
+    const [selectedTime, setSelectedTime] = useState({display: null, database: null});
     const [selectedDate, setSelectedDate] = useState(null);
-    const [selectedReceiver, setSelectedReceiver] = useState(null);
+    const [selectedReceiver, setSelectedReceiver] = useState({display: null, database:null});
     const [allUsersMap, setAllUsersMap] = useState([]);
 
     return (
