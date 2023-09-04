@@ -15,13 +15,27 @@ const NavLinks = ({title, route}) => (
 
 const Navbar = () => {
     const { activeUser, setActiveUser } = useStateContext();
- //  setActiveUser(true); //debug
+   setActiveUser(true); //debug
 
   return (
     <div className='flex justify-between p-2 bg-cyan-400 dark:bg-slate-700 relative'>
-        <div className=' relative'>
+        <div className='flex'>
             <Modal />
-        </div> 
+            <div>
+            {activeUser ? (
+                <div >
+                    <NavLinks 
+                title={'Profile'}
+                route={'/user-profile'}
+            />
+                </div>
+            ) : (
+                <div>
+                    
+                </div>
+            )}
+            </div> 
+        </div>
         <div className='flex'>
             <NavLinks 
                 title={'Home'}
@@ -39,7 +53,7 @@ const Navbar = () => {
                 title={'About Us'}
                 route={'/about-us'}
             />
-            <div>
+            {/* <div>
             {activeUser ? (
                 <div>
                     <NavLinks 
@@ -52,7 +66,7 @@ const Navbar = () => {
                     
                 </div>
             )}
-            </div>
+            </div> */}
         </div>
         <div className='p-2 m-0'>
             <Darkmode />
