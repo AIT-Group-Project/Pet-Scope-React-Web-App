@@ -1,12 +1,12 @@
 import React from 'react'
-import { ContactCards } from '../components'
+import CardContainer from '../components/StaffCards/CardContainer'
 
 const Staff = () => {
   return (
-    <div className='dark:bg-slate-600'>
-      <section className='p-20 grid md:grid-cols-2 sm:grid-cols-1 gap-6'>
-        <ContactCards />
-      </section>
+    <div className='flex'>
+      <div className='w-full'>
+        <CardContainer />
+      </div>
     </div>
   )
 }

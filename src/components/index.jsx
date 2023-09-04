@@ -3,5 +3,7 @@ export { default as Modal } from './Modal';
 export { default as Footer } from './Footer';
 export { default as Map } from './Map';
 export { default as Contactsbox } from './Contactsbox';
-export { default as ContactCards } from './ContactCards';
 export { default as Imageslider } from './Imageslider';
+export { default as ProfileInfoBox } from './ProfileInfoBox';
+export { default as CardContainer } from './StaffCards/CardContainer';
+export { default as Card } from './StaffCards/Card';
