@@ -9,7 +9,7 @@ const ProfileInfoBox = () => {
     {/* ::Title Contact Us */}
     <h2 className="text-4xl font-oswald uppercase">Profile Options</h2>
     {/* ::Text */}
-    <MyListbox className="flex justify-center"> </MyListbox>
+    <MyListbox className="flex justify-center translate-x-4"> </MyListbox>
   </div> 
 </div>
     )

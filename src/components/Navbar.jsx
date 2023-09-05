@@ -8,7 +8,7 @@ import Darkmode from './Darkmode';
 const NavLinks = ({title, route}) => (
     <NavLink
         to={route}
-        className='block text-xl rounded-lg m-2 px-3 py-2 hover:bg-emerald-600 text-black font-semibold dark:hover:bg-slate-500 dark:text-white'
+        className='block text-xl rounded-lg m-2 px-3 py-2 hover:bg-emerald-600 text-black font-semibold dark:hover:bg-slate-500 dark:text-white transition duration-700 ease-in-out '
     >
         {title}
     </NavLink>
@@ -17,10 +17,10 @@ const NavLinks = ({title, route}) => (
 const Navbar = () => {
 
     const { activeUser, setActiveUser } = useStateContext();
-    //setActiveUser(true); //debug
+    setActiveUser(true); //debug
 
     return (
-        <nav className="bg-cyan-400 dark:bg-gray-700 text-white p-4">
+        <nav className="bg-cyan-400 dark:bg-gray-700 text-yellow-400 dark:text-black p-4">
             <div className="container mx-auto flex justify-between items-center">
                 {/* Left Buttons */}
                 <div className="flex flex-1 justify-start space-x-4">
