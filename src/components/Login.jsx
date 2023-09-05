@@ -74,15 +74,15 @@ export default function Login() {
     <div>
       <form className='font-semibold'>
         <label type='text'>
-          <p className='dark:text-white'>Email</p>
-          <input ref={loginEmailElement} type='email' className='w-full p-1 my-1' autoFocus required/>
+          <p className='text-black dark:text-white'>Email</p>
+          <input ref={loginEmailElement} type='email' className='w-full p-1 my-1 text-black' autoFocus required/>
         </label>
         <label type='text'>
-          <p className='dark:text-white'>Password</p>
-          <input ref={loginPasswordElement} type='password' className='w-full p-1 my-1' required/>
+          <p className='text-black dark:text-white'>Password</p>
+          <input ref={loginPasswordElement} type='password' className='w-full p-1 my-1 text-black' required/>
         </label>
         <div className = 'relative text-xl text-center rounded-lg p-3 my-2 dark:bg-slate-500 dark:hover:bg-slate-500/[0.5]'>
-          <button type="submit" className='w-full rounded-lg dark:text-white' onClick={handleAuthentication()}>Submit</button>
+          <button type="submit" className='w-full rounded-lg text-black dark:text-white' onClick={handleAuthentication()}>Submit</button>
         </div>
       </form>
     </div>
