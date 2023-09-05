@@ -42,7 +42,7 @@ export default function Modal() {
                 </div>
             ) : (
                 <div>
-                    <button onClick={toggleModal} className='block text-xl rounded-lg m-2 px-3 py-2 hover:bg-yellow-400 text-blue-700 dark:bg-slate-500 dark:text-white'>
+                    <button onClick={toggleModal} className='block text-xl rounded-lg m-2 px-3 py-2 hover:bg-yellow-400 text-black font-semibold bg-slate-200 dark:bg-slate-500 dark:text-white ' >
                         Login
                     </button>
                 </div>
@@ -55,20 +55,20 @@ export default function Modal() {
                     <div className='fixed -translate-x-2/4 -translate-y-2/4 leading-[1.4] max-w-[700px] min-w-[400px] px-7 py-3.5 rounded-[3px] left-2/4 top-[40%] bg-slate-200 dark:bg-slate-700'>
                         <div className='inline'>
                             <div>
-                                <button className='relative text-xl rounded-lg p-3 mx-1 my-2 bg-slate-300 dark:bg-slate-500 dark:text-white dark:hover:bg-slate-500/[0.5]'  onClick={toggleFormPage}>{btnText}</button>
+                                <button className='relative text-xl rounded-lg p-3 mx-1 my-2 text-black bg-slate-300 dark:bg-slate-500 dark:text-white dark:hover:bg-slate-500/[0.5]'  onClick={toggleFormPage}>{btnText}</button>
                             </div>
                             <div>
                                 {formPage ? (
                                     <div>
                                         <div className='flex w-full'>
-                                            <p className='m-auto dark:text-white'>Login Form</p>
+                                            <p className='m-auto text-black dark:text-white font-semibold'>Login Form</p>
                                         </div>
                                         <Login />
                                     </div>
                                 ) : (
                                     <div>
                                         <div className='flex w-full'>
-                                            <p className='m-auto dark:text-white'>Register Form</p>
+                                            <p className='m-auto text-black dark:text-white font-semibold'>Register Form</p>
                                         </div>
                                         <Register />
                                     </div>

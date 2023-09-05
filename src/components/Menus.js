@@ -5,7 +5,7 @@ export const PageLinks = [
     {name : 'Home',link: '/Home'},
     {name : 'Services',link: '/Services'},
     {name : 'Staff',link: '/Staff'},
-    {name : 'AboutUs',link: '/About-Us'},
+    {name : 'PlayDate',link: '/playdate'},
 ]
 export const dog = [
     {name : 'location',link : "https://maps.google.com/maps?ll=-34.925751,138.600753&z=14&t=m&hl=en&gl=AU&mapclient=embed&q=Adelaide%20SA%205000" },
