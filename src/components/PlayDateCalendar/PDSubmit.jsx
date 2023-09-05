@@ -46,12 +46,12 @@ const PDSubmit = (props) => {
                 }
             );
             console.log('responseSubmit', response)
+            alert("Playdate Sent To " + props.receiver.display + " For " + props.time.display + " On " + props.date.toDateString())
             resetCalendar();
         } catch (error) {
             console.error('failed to submit playdate', error);
         }
-
-
+        
     };
     
     const resetCalendar = () => {
