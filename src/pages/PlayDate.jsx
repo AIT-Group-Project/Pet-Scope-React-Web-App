@@ -2,7 +2,7 @@ import React from 'react';
 import { PlayDateContextProvider } from '../contexts/PlayDateContextProvider';
 import { PlayDateInviteContextProvider } from '../contexts/PlayDateInviteContextProvider';
 import { PDCalendar } from '../components';
-import InviteContainer from '../components/PlayDateInvites/InviteContainer';
+// import InviteContainer from '../components/PlayDateInvites/InviteContainer';
 import InviteReceiver from '../components/PlayDateInvites/InviteReceiver';
 
 const PlayDate = () => {

@@ -61,7 +61,28 @@ const InviteReceiver = () => {
     };
 
     return (
-        console.log(allInviteResponse)
+        <>
+            {
+                <>
+                    <div className='w-full flex'>
+                        <div className='mx-auto m-2'>
+                            {
+                                <div>
+                                    <p className='font-semibold text-xl dark:text-white text-center'>Select a User</p>
+                                    <select ref={selectedOption} onChange={() => handleSelectedRecivier()} className='py-1 px-5'>
+                                        <option value="-1" selected disabled hidden>Please Select A User</option>
+                                        {Object.entries(allInvitesMap).map(([key, val]) => (
+                                        <option key={key} value={`${val.play_date_id} ${val.sender_user_id} ${val.reciver_user_id} ${val.play_date} ${val.play_time} | ${val.confirmed}`}>{`${val.sender_user_id} ${val.reciver_user_id} ${val.play_date} ${val.play_time} ${val.confirmed}`}</option>
+                                    ))}
+                                    </select>
+                                    
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </>
+            }
+        </>
         )
 
 }
