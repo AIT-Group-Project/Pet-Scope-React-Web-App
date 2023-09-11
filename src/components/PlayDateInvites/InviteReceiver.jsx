@@ -20,10 +20,13 @@ const InviteReceiver = () => {
                 return;
             }
             try {
+                //sends a request to get the invites for the currently logged in
                 const allInviteResponse = await axios.get(INVITE_URL, {
-                    headers: {'Authorization': `Bearer ${auth.accessToken}`},
+                    headers: {'Authorization': `Bearer ${auth.accessToken}`}, 
+                    params: {'userId': `${auth.userId}`}, 
                     withCredentials: true
                 })
+                //console.log(auth.userId)
                 console.log('response' , allInviteResponse)
 
                 setAllInvitesMap(allInviteResponse.data);
