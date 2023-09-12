@@ -13,4 +13,4 @@ export { default as ProfileInfoBox } from './ProfileInfoBox';
 export { default as CardContainer } from './StaffCards/CardContainer';
 export { default as Card } from './StaffCards/Card';
 export { default as PDInvite } from './PlayDateInvites/PDInvite';
-export { default as InviteContainer } from './PlayDateInvites/InviteContainer';
+export { default as PDDisplayReceived } from './PlayDateInvites/PDDisplayReceived';

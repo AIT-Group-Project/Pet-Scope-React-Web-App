@@ -54,6 +54,10 @@ const Navbar = () => {
                             route={'/Playdate'}
                         />
                         <NavLinks
+                            title={'My Play Dates'}
+                            route={'/my-playdate'}
+                        />
+                        <NavLinks
                             title={'About Us'}
                             route={'/About-Us'}
                         />
