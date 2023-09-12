@@ -72,14 +72,6 @@ const InviteReceiver = () => {
                             PDTime={val.play_time}
                             PDConfirmed={val.confirmed}
                         />
-                        // <div key={key}>
-                        //     {val.play_date_id}<br></br>
-                        //     {val.sender_user_id}<br></br>
-                        //     {val.reciver_user_id}<br></br>
-                        //     {val.play_date}<br></br>
-                        //     {val.play_time}<br></br>
-                        //     {val.confirmed}<br></br>
-                        // </div>
                     ))}
                 </div>  
             )}
