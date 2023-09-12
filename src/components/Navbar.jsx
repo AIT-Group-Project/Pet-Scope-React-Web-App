@@ -17,7 +17,7 @@ const NavLinks = ({title, route}) => (
 const Navbar = () => {
 
     const { activeUser, setActiveUser } = useStateContext();
-    //setActiveUser(true); //debug
+    setActiveUser(true); //debug
 
     return (
         <nav className="bg-cyan-400 dark:bg-gray-700 text-yellow-400 dark:text-black p-4">

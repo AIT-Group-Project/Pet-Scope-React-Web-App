@@ -1,6 +1,44 @@
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { PhotoIcon } from '@heroicons/react/24/solid'
+import axios from '../api/axios';
+const PROFILE_URL = '/profile';
 
-export default function Example() {
+export default function Listbox() {
+
+   const profilePetNameElement = useRef('');
+   const profilePhotoElement = useRef('');
+   const profileBreedElement = useRef('');
+   const profileAgeElement = useRef('');
+   //const profileCountryElement = useRef('');
+   const profileSuburbElement = useRef('');
+   const profilePostalcodeElement = useRef('');
+   const profileContactElement = useRef('');
+
+  const profile = async () => {
+    const petName = profilePetNameElement.current?.value;
+    const Photo = profilePhotoElement.current?.value;
+    const Breed = profileBreedElement.current?.value;
+    const Age = profileAgeElement.current?.value;
+    const Suburb = profileSuburbElement.current?.value;
+    const Postal = profilePostalcodeElement.current?.value;
+    const Contact = profileContactElement.current?.value;
+
+    console.log(`reg data: ${petName}:${Photo}:${Breed}:${Age}:${Suburb}:${Postal}:${Contact}`)
+
+    try {
+      const response = await axios.post(PROFILE_URL,
+        JSON.stringify({petName, Photo, Breed, Age, Suburb, Postal, Contact}),
+        {
+          
+        }
+        )
+    }
+
+  };
+
+
+
+
+
   return (
     <form className='flex flex-1 justify-center space-x-4 hidden md:flex'>
       <div className="space-y-12">
@@ -27,37 +65,6 @@ export default function Example() {
                     placeholder="janesmith"
                   />
                 </div>
-              </div>
-            </div>
-
-            <div className="col-span-full">
-              <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">
-                About
-              </label>
-              <div className="mt-2">
-                <textarea
-                  id="about"
-                  name="about"
-                  rows={1}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  defaultValue={''}
-                />
-              </div>
-              <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
-            </div>
-
-            <div className="col-span-full">
-              <label htmlFor="photo" className="block text-sm font-medium leading-6 text-gray-900">
-                Photo
-              </label>
-              <div className="mt-2 flex items-center gap-x-3">
-                <UserCircleIcon className="h-12 w-12 text-gray-300" aria-hidden="true" />
-                <button
-                  type="button"
-                  className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                >
-                  Change
-                </button>
               </div>
             </div>
 
@@ -174,6 +181,20 @@ export default function Example() {
                   name="postal-code"
                   id="postal-code"
                   autoComplete="postal-code"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div className="sm:col-span-2">
+              <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
+                Phone Number
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="Phone-code"
+                  id="phone-code"
+                  autoComplete="phone-code"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>

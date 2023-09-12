@@ -1,11 +1,10 @@
 import React from 'react'
-import { Listbox, ProfileInfoBox } from '../components'
-import MyListbox from '../components/MyListbox'
+import { FormPR } from '../components'
 
 const UserProfile = () => {
   return (
     <div className=' '>
-      <Listbox />
+      <FormPR />
     </div>
   )
 }
