@@ -92,8 +92,8 @@ function Form() {
 				<input
 					name='petname'
 					placeholder='Pet Name'
-					value = {this.state.petname}
-					onChange={this.handleChange}
+					value = {formData.petname}
+					onChange={handleChange}
 				/>
 				</div>
 				<div className='mt-3'>
@@ -102,8 +102,8 @@ function Form() {
 					<input
 						name='dogorcat'
 						placeholder='Dog or Cat'
-						value={this.state.dogorcat}
-						onChange={this.handleChange}
+						value={formData.dogorcat}
+						onChange={handleChange}
 					/>
 					</div>
 				</div>
@@ -113,8 +113,8 @@ function Form() {
 					<input
 						name='gender'
 						placeholder='Pet Gender'
-						value={this.state.gender}
-						onChange={this.handleChange}
+						value={formData.gender}
+						onChange={handleChange}
 					/>
 					</div>
 				</div>
@@ -124,8 +124,8 @@ function Form() {
 					<input
 						name='breed'
 						placeholder='Pet Breed'
-						value={this.state.breed}
-						onChange={this.handleChange}
+						value={formData.breed}
+						onChange={handleChange}
 					/>
 					</div>
 				</div>
@@ -136,8 +136,8 @@ function Form() {
 				<input
 					name='age'
 					placeholder='Age'
-					value={this.state.age}
-					onChange={this.handleChange}
+					value={formData.age}
+					onChange={handleChange}
 				/>
 				</div>
 			</div>
@@ -147,8 +147,8 @@ function Form() {
 				<input
 					name='address'
 					placeholder='Address'
-					value={this.state.address}
-					onChange={this.handleChange}
+					value={formData.address}
+					onChange={handleChange}
 				/>
 				</div>
 			</div>
@@ -158,8 +158,8 @@ function Form() {
 				<input
 					name='phoneNo'
 					placeholder='Phone No'
-					value={this.state.phoneNo}
-					onChange={this.handleChange}
+					value={formData.phoneNo}
+					onChange={handleChange}
 				/>
 				</div>
 			</div>
@@ -169,8 +169,8 @@ function Form() {
 				<input 
 					name='postcode'
 					placeholder='PostCode'
-					value={this.state.postcode}
-					onChange={this.handleChange}
+					value={formData.postcode}
+					onChange={handleChange}
 				/>	
 				</div>
 			</div>
