@@ -1,10 +1,10 @@
 import React from 'react'
-import { FormPR } from '../components'
+import { Form } from '../components'
 
 const UserProfile = () => {
   return (
     <div className=' '>
-      <FormPR />
+      <Form />
     </div>
   )
 }
