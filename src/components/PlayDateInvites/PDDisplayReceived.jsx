@@ -1,9 +1,11 @@
-import React from 'react'
+import { InviteConfirm } from './InviteConfirm';
 
 const PDDisplayReceived = (props) => {
-    const styles = 'w-full py-2 m-1 rounded-lg dark:bg-slate-300';
+    const InviteTrue = "T"
+    const InviteFalse = "F"
     const timeOptions = ['08:00 AM','09:00 AM','10:00 AM','2:00 PM','3:00 PM'];
     const timeDatabaseFormatted = ['08:00:00','09:00:00','10:00:00','14:00:00','15:00:00'];
+
 
     const formatDate = (date) => {
         let newDate = new Date(date).toLocaleDateString('en-AU', {
@@ -26,6 +28,20 @@ const PDDisplayReceived = (props) => {
         return getTwelveHourTime(formattedTime);
     }
 
+    const formatConfirm = (confirmed) => {
+        if (confirmed === "T") {
+            confirmed = "Accepted"
+            return confirmed;
+        }
+        if (confirmed === "F") {
+            confirmed = "Declined"
+            return confirmed;
+        }
+        if (confirmed === null) {
+            confirmed = "Pending"
+            return confirmed;
+        }};
+
   return (
     <div className='flex'>
         <div className='mx-auto'>
@@ -34,15 +50,23 @@ const PDDisplayReceived = (props) => {
                 <p>Recevier: {props.PDReceiverName}</p>
                 <p>Date: {formatDate(props.PDDate)}</p>
                 <p>Time: {formatTime(props.PDTime)}</p>
-                <p>confirmed: {props.PDConfirmed}</p>
+                <p>Confirmed?: {formatConfirm(props.PDConfirmed)}</p>
             </div>
-            <>
-                <button className={styles}>confirm</button>
-                <button className={styles}>cancel</button>
-            </>
+                <InviteConfirm
+                    id ={props.PDID}
+                    confirm = {InviteTrue}
+                    innertext = {"Confirm"}
+                />
+                <InviteConfirm
+                    id ={props.PDID}
+                    confirm = {InviteFalse}
+                    innertext = {"Decline"}
+                />
         </div>
     </div>
   )
 }
+
+
 
 export default PDDisplayReceived
