@@ -1,24 +1,27 @@
-import React,{ Component } from 'react'
+import React,{ Component, useRef } from 'react'
 
 class Form extends Component{
 constructor(props){
 	super(props)
-	this.state = { petname:'',name:'', age:null, address:'',phoneNo:''}
+	this.state = { petname:'', dogorcat:'', gender:'', breed:'', age:null, address:'',phoneNo:'', postcode:''}
 	this.handleChange = this.handleChange.bind(this)
 	this.handleSubmit = this.handleSubmit.bind(this)
 }
 
 // Form submitting logic, prevent default page refresh
 handleSubmit(event){
-	const { petname, dogorcat, age, address, phoneNo } = this.state
+	const { petname, dogorcat, gender, breed, age, address, phoneNo, postcode } = this.state
 	event.preventDefault()
 	alert(`
 	____Your Details____\n
 	PetName : ${petname}
-	Name : ${dogorcat}
+	Dog or Cat : ${dogorcat}
+	Gender : ${gender}
+	Breed : ${breed}
 	Age : ${age}
 	Address : ${address}
 	Phone No : ${phoneNo}
+	Postcode: ${postcode}
 	`)
 }
 
@@ -43,7 +46,7 @@ render(){
 		<div className='space-y-12'>
 			<div className='border-b broder-gray-900/10 pb-12'>
 				<div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
-				<label htmlFor='petname' className='block text-sm font-medium leading-6 text-gray-900'>Pet Name</label>
+				<label htmlFor='petname' className='block text-m font-medium leading-6 text-gray-900'>Pet Name</label>
 				<input
 					name='petname'
 					placeholder='Pet Name'
@@ -53,18 +56,41 @@ render(){
 				</div>
 				<div className='mt-3'>
 					<div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
-					<label htmlFor='dogorcat'>Dog or cat</label>
+					<label htmlFor='dogorcat' className='block text-m font-medium leading-6 text-gray-900'>Dog or cat</label>
 					<input
 						name='dogorcat'
 						placeholder='Dog or Cat'
-						value={this.state.name}
+						value={this.state.dogorcat}
+						onChange={this.handleChange}
+					/>
+					</div>
+				</div>
+				<div className='mt-3'>
+					<div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+					<label htmlFor='gender' className='block text-m font-medium leading-6 text-gray-900'>Gender</label>
+					<input
+						name='gender'
+						placeholder='Pet Gender'
+						value={this.state.gender}
+						onChange={this.handleChange}
+					/>
+					</div>
+				</div>
+				<div className='mt-3'>
+					<div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+					<label htmlFor='breed' className='block text-m font-medium leading-6 text-gray-900'>Pet Breed</label>
+					<input
+						name='breed'
+						placeholder='Pet Breed'
+						value={this.state.breed}
 						onChange={this.handleChange}
 					/>
 					</div>
 				</div>
 			</div>
-				<div>
-				<label htmlFor='age'>Age</label>
+			<div className='mt-3'>
+				<div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+				<label htmlFor='age' className='block text-m font-medium leading-6 text-gray-900'>Age</label>
 				<input
 					name='age'
 					placeholder='Age'
@@ -72,8 +98,10 @@ render(){
 					onChange={this.handleChange}
 				/>
 				</div>
-				<div>
-				<label htmlFor='address'>Address</label>
+			</div>
+			<div className='mt-3'>
+				<div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+				<label htmlFor='address' className='block text-m font-medium leading-6 text-gray-900'>Address</label>
 				<input
 					name='address'
 					placeholder='Address'
@@ -81,8 +109,10 @@ render(){
 					onChange={this.handleChange}
 				/>
 				</div>
-				<div>
-				<label htmlFor='phoneNo'>Phone Number</label>
+			</div>
+			<div className='mt-3'>
+				<div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+				<label htmlFor='phoneNo' className='block text-m font-medium leading-6 text-gray-900'>Phone Number</label>
 				<input
 					name='phoneNo'
 					placeholder='Phone No'
@@ -90,8 +120,21 @@ render(){
 					onChange={this.handleChange}
 				/>
 				</div>
+			</div>
+			<div className='mt-3'>
+				<div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+				<label htmlFor='postcode' className='block text-m font-medium leading-6 text-gray-900'>Postcode</label>
+				<input 
+					name='postcode'
+					placeholder='PostCode'
+					value={this.state.postcode}
+					onChange={this.handleChange}
+				/>	
+				</div>
+			</div>
+			
 				<div>
-				<button>Create Account</button>
+				<button className='justify-center items-center mt-3 py-4'>Create Account</button>
 				</div>
 			
 		</div>
