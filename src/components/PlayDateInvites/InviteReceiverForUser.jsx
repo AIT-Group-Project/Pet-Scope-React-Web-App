@@ -1,5 +1,5 @@
 import { PDDisplayReceivedForUser } from '..';
-import React, { useContext, useEffect, useState, useRef } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../contexts/AuthProvider';
 import PlayDateContext from '../../contexts/PlayDateContextProvider';
 import axios from '../../api/axios';
@@ -21,7 +21,7 @@ const InviteReceiverForUser = () => {
                 return;
             }
             try {
-                //sends a request to get the invites for the currently logged in
+                //sends a request to get the invites the currently logged in has sent
                 const getUsersPlayDates = await axios.get(`${PLAYDATES_URL}/${auth.userId}/${auth.userId}`, {
                     headers: {'Authorization': `Bearer ${auth.accessToken}`}, 
                     withCredentials: true
