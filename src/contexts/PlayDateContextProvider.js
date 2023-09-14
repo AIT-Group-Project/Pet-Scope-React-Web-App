@@ -11,6 +11,8 @@ export const PlayDateContextProvider = ({ children }) => {
     const [showTimeOptions, setShowTimeOptions] = useState(false);
     const [showRecivier, setShowRecivier] = useState(false);
 
+    const [reveiverPlayDateMap, setReveiverPlayDateMap] = useState([]);
+
     return (
         <PlayDateContext.Provider value={{ 
             selectedTime,
@@ -24,7 +26,9 @@ export const PlayDateContextProvider = ({ children }) => {
             showTimeOptions,
             setShowTimeOptions,
             showRecivier,
-            setShowRecivier
+            setShowRecivier,
+            reveiverPlayDateMap,
+            setReveiverPlayDateMap
         }}>
             {children}
         </PlayDateContext.Provider>
