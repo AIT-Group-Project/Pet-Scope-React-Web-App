@@ -23,10 +23,11 @@ const PDDisplayReceivedForUser = (props) => {
 
     const formatTime = (time) => {
         const newTime = time.split('T');
-        let formattedTime = newTime[1].replace('Z', '').slice(0, -4);
+        let formattedTime = newTime[1].replace('Z', '').slice(0, -4);// This ensures that the time is set to 12hr time with AM and PM'
         return getTwelveHourTime(formattedTime);
     }
 
+    // Changes the single letter response into a proper response'
     const formatConfirm = (confirmed) => {
         if (confirmed === "T") {
             confirmed = "Accepted"
@@ -41,22 +42,42 @@ const PDDisplayReceivedForUser = (props) => {
             return confirmed;
         }};
 
+    // If a receiver user is deleted from the database or is null sends through Unknown/Deleted User
     const formatReceiver = (receiver) => {
         if (receiver === ' '){
-        receiver = "Unknown/Deleted User"
-        return receiver;
+            receiver = "Unknown/Deleted User"
+            return receiver;
+        }
+        if (receiver === null){
+            receiver = "Unknown/Deleted User"
+            return receiver;
         }
         else{
-        return receiver;
-        }
-    }
+            return receiver;
+        }};
+
+        // If a sender user is deleted from the database or is null sends through Unknown/Deleted User
+        const formatSender = (sender) => {
+            if (sender === ' '){
+                sender = "Unknown/Deleted User"
+                return sender;
+            }
+            if (sender === null){
+                sender = "Unknown/Deleted User"
+                return sender;
+            }
+            else{
+                return sender;
+            }};
+
 
   return (
+    //returns the response from the DB into formatted Cards
     <div className='p-4 mx-auto border-t dark:text-black font-semibold grid grid-cols-1 gap-10 border-slate-700 '>
         <div>
             <div className='text-center'>
                 <p className= {`${stylesheader}`}>Sender</p>
-                <p className= {`${stylesinfo}`}>{props.PDSenderName}</p>
+                <p className= {`${stylesinfo}`}>{formatSender(props.PDSenderName)}</p>
                 <p className= {`${stylesheader}`}>Recevier</p>
                 <p className= {`${stylesinfo}`}>{formatReceiver(props.PDReceiverName)}</p>
                 <p className= {`${stylesheader}`}>Date</p>
