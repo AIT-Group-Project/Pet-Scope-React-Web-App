@@ -46,7 +46,7 @@
 
 import React, { useRef, useState } from 'react';
 import axios from '../../api/axios';
-
+const PROFILE_URL = './profile'
 function Form() {
   const [formData, setFormData] = useState({
     petname: '',
@@ -70,7 +70,7 @@ function Form() {
     event.preventDefault();
     try {
       // Send the form data to your API using Axios
-      const response = await axios.post('API_URL', formData);
+      const response = await axios.post(PROFILE_URL, formData);
 
       // Handle the API response as needed
       console.log('API response:', response.data);
