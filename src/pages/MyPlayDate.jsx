@@ -7,16 +7,19 @@ const MyPlayDate = () => {
 
     
     return (
-        <div className='dark:bg-slate-500 grid grid-cols-1 sm:grid-cols-6'>
-            <PlayDateContextProvider>
-                User Playdate Recieved
-                <InviteReceiver />
-            </PlayDateContextProvider>
-
-            <PlayDateContextProvider>
-                User Playdate Sent
-                <InviteReceiverForUser/>
-            </PlayDateContextProvider>
+        <div className='p-10 mx-auto border-t dark:bg-slate-500 dark:text-black font-semibold grid grid-cols-2 gap-10'>
+            <div className= 'p-5 m-5 relative border dark:bg-slate-300 dark:text-black font-semibold border-sky-500 before:w-px before:h-16 before:absolute before:left-1/2 before:-translate-x-1/2 before:bottom-full after:h-px after:w-16 '>
+                <h1 className= 'text-center text-3xl font-bold underline'>User Playdate Recieved</h1>
+                    <PlayDateContextProvider>
+                        <InviteReceiver />
+                    </PlayDateContextProvider>
+            </div>
+            <div className= 'p-5 m-5 relative border dark:bg-slate-300 dark:text-black font-semibold border-sky-500 before:w-px before:h-16 before:absolute before:left-1/2 before:-translate-x-1/2 before:bottom-full after:h-px after:w-16'>
+                <h2 className= 'text-center text-3xl font-bold underline'>User Playdate Sent</h2>
+                    <PlayDateContextProvider>
+                        <InviteReceiverForUser/>
+                    </PlayDateContextProvider>
+            </div>
         </div>
     )
 }

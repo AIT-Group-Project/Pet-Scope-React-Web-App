@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import axios from '../../api/axios';
 import AuthContext from '../../contexts/AuthProvider';
-const styles = 'text-center w-full py-2 m-1 rounded-lg dark:bg-slate-300';
+const styles = 'text-center w-full py-2 m-1 rounded-lg dark:bg-slate-500 dark:hover:bg-sky-700';
 const PLAYDATES_URL = '/playdate';
 
 export const InviteConfirm = ({id,confirm,innertext}) => {
@@ -29,6 +29,12 @@ export const InviteConfirm = ({id,confirm,innertext}) => {
                 }
             );
             console.log('responseSubmit', response)
+            if(data.Confirmed === "T"){
+            alert("Playdate Confirmed")
+            }
+            if(data.Confirmed === "F"){
+                alert("Playdate Declined")
+            }
         } catch (error) {
             console.error('failed to confirm or decline playdate', error);
         }

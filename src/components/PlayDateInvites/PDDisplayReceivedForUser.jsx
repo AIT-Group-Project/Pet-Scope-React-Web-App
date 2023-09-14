@@ -1,3 +1,5 @@
+const stylesheader = 'font-bold underline text-lg';
+const stylesinfo= '';
 
 const PDDisplayReceivedForUser = (props) => {
     const timeOptions = ['08:00 AM','09:00 AM','10:00 AM','2:00 PM','3:00 PM'];
@@ -39,15 +41,30 @@ const PDDisplayReceivedForUser = (props) => {
             return confirmed;
         }};
 
+    const formatReceiver = (receiver) => {
+        if (receiver === ' '){
+        receiver = "Unknown/Deleted User"
+        return receiver;
+        }
+        else{
+        return receiver;
+        }
+    }
+
   return (
-    <div className='flex'>
-        <div className='mx-auto'>
-            <div className='p-2'>
-                <p>Sender: {props.PDSenderName}</p>
-                <p>Recevier: {props.PDReceiverName}</p>
-                <p>Date: {formatDate(props.PDDate)}</p>
-                <p>Time: {formatTime(props.PDTime)}</p>
-                <p>Confirmed?: {formatConfirm(props.PDConfirmed)}</p>
+    <div className='p-4 mx-auto border-t dark:text-black font-semibold grid grid-cols-1 gap-10 border-slate-700 '>
+        <div>
+            <div className='text-center'>
+                <p className= {`${stylesheader}`}>Sender</p>
+                <p className= {`${stylesinfo}`}>{props.PDSenderName}</p>
+                <p className= {`${stylesheader}`}>Recevier</p>
+                <p className= {`${stylesinfo}`}>{formatReceiver(props.PDReceiverName)}</p>
+                <p className= {`${stylesheader}`}>Date</p>
+                <p className= {`${stylesinfo}`}>{formatDate(props.PDDate)}</p>
+                <p className= {`${stylesheader}`}>Time</p>
+                <p className= {`${stylesinfo}`}>{formatTime(props.PDTime)}</p>
+                <p className= {`${stylesheader}`}>Confirmed?</p>
+                <p className= {`${stylesinfo}`}>{formatConfirm(props.PDConfirmed)}</p>
             </div>
         </div>
     </div>
