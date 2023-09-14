@@ -78,7 +78,7 @@ const PDDisplayReceivedForUser = (props) => {
             <div className='text-center'>
                 <p className= {`${stylesheader}`}>Sender</p>
                 <p className= {`${stylesinfo}`}>{formatSender(props.PDSenderName)}</p>
-                <p className= {`${stylesheader}`}>Recevier</p>
+                <p className= {`${stylesheader}`}>Receiver</p>
                 <p className= {`${stylesinfo}`}>{formatReceiver(props.PDReceiverName)}</p>
                 <p className= {`${stylesheader}`}>Date</p>
                 <p className= {`${stylesinfo}`}>{formatDate(props.PDDate)}</p>
