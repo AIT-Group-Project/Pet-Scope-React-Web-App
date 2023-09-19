@@ -2,7 +2,10 @@ import React, { useContext, useRef } from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
 import AuthContext from '../contexts/AuthProvider';
 import axios from '../api/axios';
+import { UserData } from '.';
 const LOGIN_URL = '/auth';
+
+
 
 export default function Login() {
 
@@ -11,7 +14,6 @@ export default function Login() {
   const {modal, setModal} = useStateContext();
   const { setAuth } = useContext(AuthContext);
   const { setActiveUser } = useStateContext();
-  
 
   const toggleModal = () => {
     setModal(!modal);
@@ -56,19 +58,16 @@ export default function Login() {
 
     if (resData !== undefined) {
       console.log('resData: ', resData); // debug
-
       const accessToken = resData.accessToken;
       const email = resData.resultEmail;
       const userId = resData.resultUserId;
-
       setAuth({accessToken, email, userId});
       setActiveUser(true);
     }
-
     // closes login modal once user is logged in
     toggleModal();
   }
-  
+
   // reminder to change the login button to a sign out button when a user has logged in
   return(
     <div>
