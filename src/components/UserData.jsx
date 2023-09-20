@@ -89,6 +89,6 @@ const UserData = () => {
         getUserData();
     }, [auth, setAuth, setUser, user, setUserData]);
     //console.log(userData.pet_name)
-    return("")
+    return(<div></div>)
 }
 export default UserData;

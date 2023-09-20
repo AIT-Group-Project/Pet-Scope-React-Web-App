@@ -6,6 +6,8 @@ function Imageslider() {
 
     const { userData } = useContext(UserContext);
     let slides = [];
+
+    //Sets all images in selected folders to an array that can then be displayed
     const imageContextCat = require.context('../Images/Cat', false, /\.jpg$/);
     const catImages = imageContextCat.keys().map(imageContextCat);
     const imageContextDog = require.context('../Images/Dog', false, /\.jpg$/);
@@ -15,6 +17,7 @@ function Imageslider() {
 
 
     //console.log(userData.dog_cat)
+    //changes homepage images depending on preference
     if (userData?.dog_cat === undefined) {
       slides = slides = vetImages;
 
@@ -28,6 +31,7 @@ function Imageslider() {
 
     }
 
+    //image slider preferences setting length and starting point
     const [currentIndex, setCurrentIndex] = useState(0)
 
     const prevSlide = () => {
