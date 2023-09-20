@@ -1,8 +1,7 @@
-import React, { useRef, useReducer } from 'react';
-import { useState } from 'react';
+import React, { useRef, useReducer, createRef } from 'react';
 import { useContext } from 'react';
 import axios from '../../api/axios';
-import  AuthProvider  from '../../contexts/AuthProvider';
+import AuthContext from '../../contexts/AuthProvider';
 const PROFILE_URL = './profile';
 
 
@@ -31,8 +30,9 @@ const formReducer = (state, action) => {
 };
 
 function Form() {
-	const {auth} = useContext(AuthProvider);
+	const {auth} = useContext(AuthContext);
   	const formRef = useRef(null);
+    const fileInput = createRef();
 
   // Initialize form state using useReducer
   const [formData, dispatch] = useReducer(formReducer, {
@@ -44,42 +44,30 @@ function Form() {
     address: '',
     phoneNo: '',
     postcode: '',
-    image: null,
   });
-  const [imageError, setImageError] = useState('');
+
   
 	const handleChange = (event) => {
 	  const { name, value } = event.target;
 	  dispatch({ type: 'UPDATE_FIELD', field: name, value });
 	  console.log('formData', formData);
 	};
-
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      if (file.size <= 10 * 1024 * 1024) {
-        dispatch({type: 'UPDATE_IMAGE', value: file });
-        console.log(formData.image)
-        setImageError('');
-      } else {
-        setImageError('Image size exceeds 10mb limit');
-      }
-    }
-  };
   
 	const handleSubmit = async (event, UID) => {
 	  event.preventDefault();
+
 		console.log('formData', formData);
 	  try {
-      const formDataToSend = new FormData();
-      for (const key in formData) {
-        formDataToSend.append(key, formData[key]);
-      }
-      console.log([...formDataToSend.entries()]);
+      const file = fileInput.current.files[0];
+      const sendfile = new FormData();
+      sendfile.append('myFile', file);
+      console.log('formData', formData);
+      const requestData = {...formData, UID}
 		  const response = await axios.post(PROFILE_URL,
-		  	formDataToSend, UID, 
-        {
-          headers: {'Authorization': `Bearer ${auth.accessToken}`, 'Content-Type': 'multipart/form-data'},
+        sendfile,
+        { 
+          data: requestData,
+          headers: {'Authorization': `Bearer ${auth.accessToken}`},
           withCredentials: true
         });
 		  console.log('API response:', response.data);
@@ -181,16 +169,7 @@ function Form() {
           />
         </div>
         <div className='mt-3'>
-          <label htmlFor='image' className='block text-m font-medium leading-6 text-gray-900'>
-            Upload Image (Max 10MB)
-          </label>
-          <input
-            type='file'
-            name='image'
-            accept='image/*'
-            onChange={handleImageChange}
-          />
-          {imageError && <p className='text-red-500'>{imageError}</p>}
+        <input type="file" name='avatar' ref={fileInput}/>
         </div>
 		<div className='mt-3'>
 		  <button type='submit' className='justify-center items-center mt-3 py-4'>Update Profile</button>
