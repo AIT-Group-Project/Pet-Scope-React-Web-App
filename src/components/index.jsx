@@ -16,4 +16,3 @@ export { default as PDDisplayReceived } from './PlayDateInvites/PDDisplayReceive
 export { default as InviteReceiverForUser } from './PlayDateInvites/InviteReceiverForUser';
 export { default as PDDisplayReceivedForUser } from './PlayDateInvites/PDDisplayReceivedForUser';
 export { default as UserData } from './UserData';
-export { default as ImageList } from './ImageList';
