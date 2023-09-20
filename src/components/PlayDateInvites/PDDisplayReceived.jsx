@@ -62,11 +62,11 @@ const PDDisplayReceived = (props) => {
     // If a sender user is deleted from the database or is null sends through Unknown/Deleted User
     const formatSender = (sender) => {
         if (sender === ' '){
-            sender = "Unknown/Deleted User"
+            sender = "Unknown Breed"
             return sender;
         }
         if (sender === null){
-            sender = "Unknown/Deleted User"
+            sender = "Unknown Breed"
             return sender;
         }
         else{
@@ -82,6 +82,8 @@ const PDDisplayReceived = (props) => {
                 <p className= {`${stylesinfo}`}>{formatSender(props.PDSenderName)}</p>
                 <p className= {`${stylesheader}`}>Recevier</p>
                 <p className= {`${stylesinfo}`}>{formatReceiver(props.PDReceiverName)}</p>
+                <p className= {`${stylesheader}`}>Pet Breed</p>
+                <p className= {`${stylesinfo}`}>{props.PDPetBreed}</p>
                 <p className= {`${stylesheader}`}>Date</p>
                 <p className= {`${stylesinfo}`}>{formatDate(props.PDDate)}</p>
                 <p className= {`${stylesheader}`}>Time</p>
