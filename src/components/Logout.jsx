@@ -21,7 +21,7 @@ const Logout = () => {
           withCredentials: true
         }
       );
-      //console.log('response', response); // debug
+      console.log('response', response); // debug
       setUser(false);
       setAuth({});
       setActiveUser(false);

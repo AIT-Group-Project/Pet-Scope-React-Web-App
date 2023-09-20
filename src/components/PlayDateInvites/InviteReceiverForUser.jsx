@@ -26,7 +26,7 @@ const InviteReceiverForUser = () => {
                     headers: {'Authorization': `Bearer ${auth.accessToken}`}, 
                     withCredentials: true
                 })
-                console.log('response' , getUsersPlayDates)
+                //console.log('response' , getUsersPlayDates)
 
                 setReveiverPlayDateMap(getUsersPlayDates.data);
                 setLoading(false);

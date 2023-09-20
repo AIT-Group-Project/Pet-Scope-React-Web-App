@@ -8,7 +8,7 @@ const REFRESH_URL = '/refresh';
 const UserData = () => {
 
     const { auth, setAuth } = useContext(AuthContext);
-    const { userData, setUserData} = useContext(UserContext)
+    const { setUserData } = useContext(UserContext)
     const { user, setUser} = useContext(UserContext);
 
     useEffect( () => {
@@ -16,21 +16,22 @@ const UserData = () => {
         const getUserData = async () => {
 
             if (user === true) {
-                console.error("User Info Already logged")
+                //console.error("User Info Already logged")
                 return;
             }
             if (!auth.accessToken) {
-                console.error("Access token is not avaliable")
+                //console.error("Access token is not avaliable")
                 return;
             }
             try {
-                //sends a request to get the invites for the currently logged in
+                //sends a request to get the information for the currently logged in
                 const getUserData = await axios.get(`${USERS_URL}/${auth.userId}` , {
                     headers: {'Authorization': `Bearer ${auth.accessToken}`},
                     withCredentials: true
                  })
                 console.log('response' , getUserData.data)
 
+                //breaks down the response then reforms it so that it can then be placed in a Context and then used across the website
                 const { 
                     user_id, 
                     first_name, 
@@ -87,7 +88,7 @@ const UserData = () => {
         };
         getUserData();
     }, [auth, setAuth, setUser, user, setUserData]);
-    console.log(userData.pet_name)
+    //console.log(userData.pet_name)
     return("")
 }
 export default UserData;

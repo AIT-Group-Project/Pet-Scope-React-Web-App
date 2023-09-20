@@ -14,7 +14,7 @@ function Imageslider() {
     const vetImages = imageContextVet.keys().map(imageContextVet);
 
 
-    console.log(userData.dog_cat)
+    //console.log(userData.dog_cat)
     if (userData?.dog_cat === undefined) {
       slides = slides = vetImages;
 
