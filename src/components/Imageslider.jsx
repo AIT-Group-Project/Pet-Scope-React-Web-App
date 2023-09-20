@@ -74,13 +74,3 @@ function Imageslider() {
 }
 
 export default Imageslider
-// import React from 'react'
-// import ImageList from './ImageList';
-
-// const Imageslider = () => {
-//   return (
-//     <div><ImageList/></div>
-//   )
-// }
-
-// export default Imageslider
