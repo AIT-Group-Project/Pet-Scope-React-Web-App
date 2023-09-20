@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState} from 'react';
+import { useContext, useEffect} from 'react';
 import axios from "../api/axios";
 import AuthContext from '../contexts/AuthProvider';
 import UserContext from '../contexts/UserProvider';
@@ -8,7 +8,7 @@ const REFRESH_URL = '/refresh';
 const UserData = () => {
 
     const { auth, setAuth } = useContext(AuthContext);
-    const { userMap, setUserMap} = useContext(UserContext)
+    const { userData, setUserData} = useContext(UserContext)
     const { user, setUser} = useContext(UserContext);
 
     useEffect( () => {
@@ -29,9 +29,38 @@ const UserData = () => {
                     headers: {'Authorization': `Bearer ${auth.accessToken}`},
                     withCredentials: true
                  })
-                console.log('response' , getUserData)
+                console.log('response' , getUserData.data)
 
-                setUserMap(getUserData.data);
+                const { 
+                    user_id, 
+                    first_name, 
+                    last_name, 
+                    contact_phone_number, 
+                    email, 
+                    suburb, 
+                    postcode, 
+                    dog_cat, 
+                    pet_name, 
+                    pet_breed, 
+                    pet_age, 
+                    pet_gender, 
+                } = getUserData.data[0];
+
+                setUserData(prevUserData => ({
+                    ...prevUserData,
+                    user_id, 
+                    first_name, 
+                    last_name, 
+                    contact_phone_number, 
+                    email, 
+                    suburb, 
+                    postcode, 
+                    dog_cat, 
+                    pet_name, 
+                    pet_breed, 
+                    pet_age, 
+                    pet_gender, 
+                }));
                 setUser(true);
 
             } catch (error) {
@@ -57,8 +86,8 @@ const UserData = () => {
             }
         };
         getUserData();
-    }, [auth, setAuth, setUser]);
-
+    }, [auth, setAuth, setUser, user, setUserData]);
+    console.log(userData.pet_name)
     return("")
 }
 export default UserData;

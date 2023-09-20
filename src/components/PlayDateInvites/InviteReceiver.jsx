@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { PDDisplayReceived } from '..';
 import AuthContext from '../../contexts/AuthProvider';
 import PlayDateContext from '../../contexts/PlayDateContextProvider';
