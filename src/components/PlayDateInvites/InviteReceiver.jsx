@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { PDDisplayReceived } from '..';
 import AuthContext from '../../contexts/AuthProvider';
 import PlayDateContext from '../../contexts/PlayDateContextProvider';
@@ -26,7 +26,7 @@ const InviteReceiver = () => {
                     headers: {'Authorization': `Bearer ${auth.accessToken}`}, 
                     withCredentials: true
                 })
-                console.log('response' , getUsersPlayDates)
+                //console.log('response' , getUsersPlayDates)
 
                 setReveiverPlayDateMap(getUsersPlayDates.data);
                 setLoading(false);
@@ -68,6 +68,7 @@ const InviteReceiver = () => {
                             PDID={val.play_date_id}
                             PDSenderName={val.sender_name}
                             PDReceiverName={val.receiver_name}
+                            PDPetBreed={val.sender_pet_breed}
                             PDDate={val.play_date}
                             PDTime={val.play_time}
                             PDConfirmed={val.confirmed}

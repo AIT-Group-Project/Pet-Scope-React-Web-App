@@ -16,7 +16,7 @@ const NavLinks = ({title, route}) => (
 
 const Navbar = () => {
 
-    const { activeUser, setActiveUser } = useStateContext();
+    const { activeUser } = useStateContext();
     //setActiveUser(true); //debug
 
     return (

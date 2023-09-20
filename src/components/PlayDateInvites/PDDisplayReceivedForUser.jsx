@@ -69,6 +69,19 @@ const PDDisplayReceivedForUser = (props) => {
             else{
                 return sender;
             }};
+        
+        const formatBreed = (breed) => {
+            if (breed === ' '){
+                breed = "Unknown Breed"
+                return breed;
+            }
+            if (breed === null){
+                breed = "Unknown Breed"
+                return breed;
+            }
+            else{
+                return breed;
+            }};
 
 
   return (
@@ -80,6 +93,8 @@ const PDDisplayReceivedForUser = (props) => {
                 <p className= {`${stylesinfo}`}>{formatSender(props.PDSenderName)}</p>
                 <p className= {`${stylesheader}`}>Receiver</p>
                 <p className= {`${stylesinfo}`}>{formatReceiver(props.PDReceiverName)}</p>
+                <p className= {`${stylesheader}`}>Pet Breed</p>
+                <p className= {`${stylesinfo}`}>{formatBreed(props.PDPetBreed)}</p>
                 <p className= {`${stylesheader}`}>Date</p>
                 <p className= {`${stylesinfo}`}>{formatDate(props.PDDate)}</p>
                 <p className= {`${stylesheader}`}>Time</p>

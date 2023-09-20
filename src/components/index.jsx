@@ -15,3 +15,4 @@ export { default as Card } from './StaffCards/Card';
 export { default as PDDisplayReceived } from './PlayDateInvites/PDDisplayReceived';
 export { default as InviteReceiverForUser } from './PlayDateInvites/InviteReceiverForUser';
 export { default as PDDisplayReceivedForUser } from './PlayDateInvites/PDDisplayReceivedForUser';
+export { default as UserData } from './UserData';
