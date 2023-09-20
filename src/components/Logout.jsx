@@ -2,11 +2,16 @@ import React, { useContext } from 'react'
 import AuthContext from '../contexts/AuthProvider';
 import { useStateContext } from '../contexts/ContextProvider';
 import axios from "../api/axios";
+import UserContext from '../contexts/UserProvider';
+import { useNavigate } from 'react-router-dom';
 const LOGOUT_URL = '/logout'
 
 const Logout = () => {
   const { setAuth } = useContext(AuthContext);
   const { setActiveUser } = useStateContext();
+  const { setUser } = useContext(UserContext);
+  const { setUserData } =useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try{
@@ -17,8 +22,11 @@ const Logout = () => {
         }
       );
       console.log('response', response); // debug
+      setUser(false);
       setAuth({});
       setActiveUser(false);
+      setUserData([null]);
+      navigate('/home');
 
     } catch (error) {
     console.log(error.stack);

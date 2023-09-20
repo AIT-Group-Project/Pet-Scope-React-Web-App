@@ -81,7 +81,7 @@ const PDReceiverDropdown = () => {
                                     <select ref={selectedOption} onChange={() => handleSelectedRecivier()} className='py-1 px-5'>
                                         <option value="-1" selected disabled hidden>Please Select A User</option>
                                         {Object.entries(allUsersMap).map(([key, val]) => (
-                                        <option key={key} value={`${val.first_name} ${val.last_name}|${val.user_id}`}>{`${val.first_name} ${val.last_name}`}</option>
+                                        <option key={key} value={`${val.first_name} ${val.last_name} ${val.pet_breed}|${val.user_id}`}>{`Name: ${val.first_name} ${val.last_name} || Pet_Breed: ${val.pet_breed}`}</option>
                                     ))}
                                     </select>
                                 </div>

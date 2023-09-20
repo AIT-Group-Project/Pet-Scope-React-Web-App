@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import { ContextProvider } from './contexts/ContextProvider';
 import { AuthProvider } from './contexts/AuthProvider';
+import { UserProvider } from './contexts/UserProvider';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
@@ -19,7 +20,9 @@ function AppWithCallbackAfterRender() {
 root.render(
   <ContextProvider>
     <AuthProvider>
+      <UserProvider>
         <AppWithCallbackAfterRender />
+      </UserProvider>   
     </AuthProvider>
   </ContextProvider>
 );

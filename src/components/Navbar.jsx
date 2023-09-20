@@ -16,7 +16,7 @@ const NavLinks = ({title, route}) => (
 
 const Navbar = () => {
 
-    const { activeUser, setActiveUser } = useStateContext();
+    const { activeUser } = useStateContext();
     //setActiveUser(true); //debug
 
     return (
@@ -52,6 +52,10 @@ const Navbar = () => {
                         <NavLinks
                             title={'Play Date'}
                             route={'/Playdate'}
+                        />
+                        <NavLinks
+                            title={'My Play Dates'}
+                            route={'/my-playdate'}
                         />
                         <NavLinks
                             title={'About Us'}
