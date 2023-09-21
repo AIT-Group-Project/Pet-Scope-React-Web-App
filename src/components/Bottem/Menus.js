@@ -7,19 +7,10 @@ export const PageLinks = [
     {name : 'Staff',link: '/Staff'},
     {name : 'PlayDate',link: '/playdate'},
 ]
-export const dog = [
+export const extras = [
     {name : 'location',link : "https://maps.google.com/maps?ll=-34.925751,138.600753&z=14&t=m&hl=en&gl=AU&mapclient=embed&q=Adelaide%20SA%205000" },
-    {name : 'ball',link: '#'},
+    {name : 'MyPlayDates',link: '/my-playdate'},
     {name : 'about',link: '#'},
 ]
-export const bird = [
-    {name : 'feed',link: '#'},
-    {name : 'water',link: '#'},
-    {name : 'tree',link: '#'},
-]
-export const wolf = [
-    {name : 'sheep',link: '#'},
-    {name : 'wild',link: '#'},
-    {name : 'dirt',link: '#'},
-]
+
 

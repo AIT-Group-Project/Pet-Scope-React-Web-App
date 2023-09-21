@@ -42,7 +42,7 @@ export default function Modal() {
                 </div>
             ) : (
                 <div>
-                    <button onClick={toggleModal} className='block text-xl rounded-lg m-2 px-3 py-2 hover:bg-yellow-400 text-black font-semibold bg-slate-200 dark:bg-slate-500 dark:text-white ' >
+                    <button onClick={toggleModal} className='block text-xl rounded-lg m-2 px-3 py-2 hover:bg-emerald-400 dark:hover:bg-slate-400 text-black font-semibold bg-slate-200 dark:bg-slate-500 dark:text-white ' >
                         Login
                     </button>
                 </div>

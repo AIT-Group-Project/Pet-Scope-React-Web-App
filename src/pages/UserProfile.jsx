@@ -1,14 +1,11 @@
 import React from 'react'
-import { ProfileInfoBox } from '../components'
+import { Form } from '../components'
+
 
 const UserProfile = () => {
   return (
-    <div className='flex'>
-      <div className='w-full'>
-        <ProfileInfoBox  />
-      </div>
-
-     
+    <div className='bg-white dark:bg-slate-500 '>
+      <Form />
     </div>
   )
 }
