@@ -87,6 +87,7 @@ function Form() {
 		  placeholder='Pet Name'
 		  value={formData.petname}
 		  onChange={handleChange}
+      className='border border-gray-800'
 		/>
 		<div className='mt-3'>
           <label htmlFor='dogorcat' className='block text-m font-medium leading-6 text-gray-900'>Dog or cat</label>
@@ -121,6 +122,7 @@ function Form() {
             placeholder='Gender'
 			      value={formData.gender}
 			      onChange={handleChange}
+            className='border border-gray-800'
           />
         </div>
         <div className='mt-3'>
@@ -130,6 +132,7 @@ function Form() {
             placeholder='Breed'
 			      value={formData.breed}
 			      onChange={handleChange}
+            className='border border-gray-800'
           />
         </div>
         <div className='mt-3'>
@@ -139,6 +142,7 @@ function Form() {
             placeholder='Age'
 			      value={formData.age}
 			      onChange={handleChange}
+            className='border border-gray-800'
           />
         </div>
         <div className='mt-3'>
@@ -148,6 +152,7 @@ function Form() {
             placeholder='Address'
 			      value={formData.address}
 			      onChange={handleChange}
+            className='border border-gray-800'
           />
         </div>
         <div className='mt-3'>
@@ -157,6 +162,7 @@ function Form() {
             placeholder='Phone Number'
 			      value={formData.phoneNo}
 			      onChange={handleChange}
+            className='border border-gray-800'
           />
         </div>
         <div className='mt-3'>
@@ -166,6 +172,7 @@ function Form() {
             placeholder='postcode'
 			      value={formData.postcode}
 			      onChange={handleChange}
+            className='border border-gray-800'
           />
         </div>
         <div className='mt-3'>
