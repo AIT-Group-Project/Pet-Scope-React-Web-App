@@ -33,6 +33,7 @@ function Form() {
 	const {auth} = useContext(AuthContext);
   	const formRef = useRef(null);
     const fileInput = createRef();
+    const FormSytles = 'block text-m font-medium leading-6 text-gray-900 dark:text-white underline py-2';
 
   // Initialize form state using useReducer
   const [formData, dispatch] = useReducer(formReducer, {
@@ -79,9 +80,11 @@ function Form() {
 	};
   
 	return (
+    
 	  <form onSubmit={(e) => handleSubmit(e, auth.userId)} ref={formRef} className="flex flex-1 justify-center space-x-4 hidden md:flex">
-		<div className='mt-10'>	
-		<label htmlFor='petname' className='block text-m font-medium leading-6 text-gray-900'>Pet name</label>
+    <div className=' items-center justify-center absolute text-center text-lg text-semibold text-black dark:text-white mb-10 mt-3 space-x-4 space-y-4'>Profile Settings</div>
+		<div className='mt-9'>	
+		<label htmlFor='petname' className={`${FormSytles}`}>Pet name</label>
 		<input
 		  name='petname'
 		  placeholder='Pet Name'
@@ -90,7 +93,7 @@ function Form() {
       className='border border-gray-800'
 		/>
 		<div className='mt-3'>
-          <label htmlFor='dogorcat' className='block text-m font-medium leading-6 text-gray-900'>Dog or cat</label>
+          <label htmlFor='dogorcat' className={`${FormSytles}`}>Dog or cat</label>
           <div>
             <label className='inline-flex items-center'>
               <input
@@ -116,7 +119,7 @@ function Form() {
 
         </div>
         <div className='mt-3'>
-          <label htmlFor='gender' className='block text-m font-medium leading-6 text-gray-900'>Gender</label>
+          <label htmlFor='gender' className={`${FormSytles}`}>Gender</label>
           <input
             name='gender'
             placeholder='Gender'
@@ -126,7 +129,7 @@ function Form() {
           />
         </div>
         <div className='mt-3'>
-          <label htmlFor='breed' className='block text-m font-medium leading-6 text-gray-900'>Pet Breed</label>
+          <label htmlFor='breed' className={`${FormSytles}`}>Pet Breed</label>
           <input
             name='breed'
             placeholder='Breed'
@@ -136,7 +139,7 @@ function Form() {
           />
         </div>
         <div className='mt-3'>
-          <label htmlFor='age' className='block text-m font-medium leading-6 text-gray-900'>Age</label>
+          <label htmlFor='age' className={`${FormSytles}`}>Age</label>
           <input
             name='age'
             placeholder='Age'
@@ -146,17 +149,17 @@ function Form() {
           />
         </div>
         <div className='mt-3'>
-          <label htmlFor='address' className='block text-m font-medium leading-6 text-gray-900'>Address</label>
+          <label htmlFor='Suburb' className={`${FormSytles}`}>Address</label>
           <input
-            name='address'
-            placeholder='Address'
+            name='suburb'
+            placeholder='Suburb'
 			      value={formData.address}
 			      onChange={handleChange}
             className='border border-gray-800'
           />
         </div>
         <div className='mt-3'>
-          <label htmlFor='phoneNo' className='block text-m font-medium leading-6 text-gray-900'>Phone Number</label>
+          <label htmlFor='phoneNo' className={`${FormSytles}`}>Phone Number</label>
           <input
             name='phoneNo'
             placeholder='Phone Number'
@@ -166,7 +169,7 @@ function Form() {
           />
         </div>
         <div className='mt-3'>
-          <label htmlFor='postcode' className='block text-m font-medium leading-6 text-gray-900'>Postcode</label>
+          <label htmlFor='postcode' className={`${FormSytles}`}>Postcode</label>
           <input
             name='postcode'
             placeholder='postcode'
@@ -179,7 +182,7 @@ function Form() {
         <input type="file" name='avatar' ref={fileInput}/>
         </div>
 		<div className='mt-3'>
-		  <button type='submit' className='justify-center items-center mt-3 py-4'>Update Profile</button>
+		  <button type='submit' className='justify-center items-center mt-3 py-4 box-content dark:text-white'>Update Profile</button>
 		</div>
 		</div>
 	  </form>

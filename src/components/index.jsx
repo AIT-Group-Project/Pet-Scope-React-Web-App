@@ -9,11 +9,9 @@ export { default as PDSubmit } from './PlayDateCalendar/PDSubmit';
 export { default as PDSubmitButton } from './PlayDateCalendar/PDSubmitButton';
 export { default as PDReceiverDropdown } from './PlayDateCalendar/PDReceiverDropdown';
 export { default as Imageslider } from './Imageslider';
-export { default as ProfileInfoBox } from './ProfileInfoBox';
 export { default as CardContainer } from './StaffCards/CardContainer';
 export { default as Card } from './StaffCards/Card';
 export { default as Form } from './Profile/Form';
-
 export { default as PDDisplayReceived } from './PlayDateInvites/PDDisplayReceived';
 export { default as InviteReceiverForUser } from './PlayDateInvites/InviteReceiverForUser';
 export { default as PDDisplayReceivedForUser } from './PlayDateInvites/PDDisplayReceivedForUser';

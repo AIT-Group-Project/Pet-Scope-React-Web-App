@@ -4,7 +4,7 @@ import { Form } from '../components'
 
 const UserProfile = () => {
   return (
-    <div className=' '>
+    <div className='bg-white dark:bg-slate-500 '>
       <Form />
     </div>
   )
