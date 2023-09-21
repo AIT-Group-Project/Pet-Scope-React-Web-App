@@ -22,7 +22,7 @@ const formReducer = (state, action) => {
         gender: '',
         breed: '',
         age: '',
-        address: '',
+        suburb: '',
         phoneNo: '',
         postcode: '',
       };
@@ -47,7 +47,7 @@ function Form() {
     gender: '',
     breed: '',
     age: '',
-    address: '',
+    suburb: '',
     phoneNo: '',
     postcode: '',
   });
@@ -67,12 +67,14 @@ function Form() {
       const file = fileInput.current.files[0];
       const sendfile = new FormData();
       sendfile.append('myFile', file);
-      console.log('formData', formData);
       const requestData = {...formData, UID}
+      Object.entries(requestData).forEach(([key, value]) => {
+        sendfile.append(key, value);
+      });
+      console.log('formData', formData);
 		  const response = await axios.post(PROFILE_URL,
         sendfile,
         { 
-          data: requestData,
           headers: {'Authorization': `Bearer ${auth.accessToken}`},
           withCredentials: true
         });
@@ -155,11 +157,11 @@ function Form() {
           />
         </div>
         <div className='mt-3'>
-          <label htmlFor='Suburb' className={`${FormSytles}`}>Address</label>
+          <label htmlFor='Suburb' className={`${FormSytles}`}>Suburb</label>
           <input
             name='suburb'
             placeholder='Suburb'
-			      value={formData.address}
+			      value={formData.suburb}
 			      onChange={handleChange}
             className='border border-gray-800'
           />
