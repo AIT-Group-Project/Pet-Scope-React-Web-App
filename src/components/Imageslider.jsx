@@ -18,7 +18,7 @@ function Imageslider() {
 
     //console.log(userData.dog_cat)
     //changes homepage images depending on preference
-    if (userData?.dog_cat === undefined) {
+    if ((userData?.dog_cat === undefined) || (userData?.dog_cat === null)) {
       slides = slides = vetImages;
 
     } else if (userData?.dog_cat === 'cat') {
