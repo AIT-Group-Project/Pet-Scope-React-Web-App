@@ -1,8 +1,9 @@
 // https://i.imgur.com/XPvIBap.png
-import React from 'react';
+import React, { useContext } from 'react';
 import Modal from './Modal';
 import { NavLink } from 'react-router-dom';
 import { useStateContext } from '../contexts/ContextProvider';
+import UserContext from '../contexts/UserProvider';
 import Darkmode from './Darkmode';
 
 const NavLinks = ({title, route}) => (
@@ -17,6 +18,7 @@ const NavLinks = ({title, route}) => (
 const Navbar = () => {
 
     const { activeUser } = useStateContext();
+    const { userData } = useContext(UserContext);
     //activeUser(true); //debug
 
     return (
@@ -49,14 +51,21 @@ const Navbar = () => {
                             title={'Staff'}
                             route={'/Staff'}
                         />
-                        <NavLinks
-                            title={'Play Date'}
-                            route={'/Playdate'}
-                        />
-                        <NavLinks
-                            title={'My Play Dates'}
-                            route={'/my-playdate'}
-                        />
+                        <>
+                            {userData.dog_cat === 'dog' ? (
+                            <>
+                                <NavLinks
+                                    title={'Play Date'}
+                                    route={'/Playdate'}
+                            />
+                                <NavLinks
+                                    title={'My Play Dates'}
+                                    route={'/my-playdate'}
+                            />
+                        </>
+                        ) : (<></>)
+                        }
+                        </>
                         <NavLinks
                             title={'About Us'}
                             route={'/About-Us'}
