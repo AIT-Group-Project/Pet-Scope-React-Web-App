@@ -2,6 +2,7 @@ import React from 'react'
 import { Imageslider } from '../components'
 import { UserData } from '../components'
 
+
 const homepage = () => {
   return (
     <div className=' dark:bg-slate-500'>
@@ -11,8 +12,8 @@ const homepage = () => {
       </div>
       <UserData />
       <Imageslider />
+      </div>
       
-    </div>
   )
 }
 

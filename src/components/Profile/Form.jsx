@@ -2,6 +2,8 @@ import React, { useRef, useReducer, createRef } from 'react';
 import { useContext } from 'react';
 import axios from '../../api/axios';
 import AuthContext from '../../contexts/AuthProvider';
+import UserContext from '../../contexts/UserProvider';
+import { useNavigate } from 'react-router-dom';
 const PROFILE_URL = './profile';
 
 
@@ -31,6 +33,9 @@ const formReducer = (state, action) => {
 
 function Form() {
 	const {auth} = useContext(AuthContext);
+  const { setUser } = useContext(UserContext);
+  const { setUserData } =useContext(UserContext);
+  const navigate = useNavigate();
   	const formRef = useRef(null);
     const fileInput = createRef();
     const FormSytles = 'block text-m font-medium leading-6 text-gray-900 dark:text-white underline py-2';
@@ -79,6 +84,10 @@ function Form() {
 	    } catch (error) {
 		  console.error('Error:', error);
 	    }
+      setUser(false);
+      setUserData([null]);
+      navigate('/home');
+      
 	};
   
 	return (

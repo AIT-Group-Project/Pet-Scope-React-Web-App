@@ -4,7 +4,8 @@ import { RxDotFilled } from 'react-icons/rx';
 import UserContext from '../contexts/UserProvider';
 function Imageslider() {
 
-    const { userData } = useContext(UserContext);
+    const { userData, setUserData } = useContext(UserContext);
+    const [prevDogCat, setPrevDogCat] = useState(userData?.dog_cat);
     let slides = [];
 
     //Sets all images in selected folders to an array that can then be displayed
@@ -14,11 +15,13 @@ function Imageslider() {
     const dogImages = imageContextDog.keys().map(imageContextDog);
     const imageContextVet = require.context('../Images/Vet', false, /\.jpg$/);
     const vetImages = imageContextVet.keys().map(imageContextVet);
+    const imageContextVince = require.context('../Images/Vince', false, /\.jpg$/);
+    const vinceImages = imageContextVince.keys().map(imageContextVince);
 
 
     //console.log(userData.dog_cat)
     //changes homepage images depending on preference
-    if (userData?.dog_cat === undefined) {
+    if ((userData?.dog_cat === undefined) || (userData?.dog_cat === null)) {
       slides = slides = vetImages;
 
     } else if (userData?.dog_cat === 'cat') {
@@ -28,6 +31,10 @@ function Imageslider() {
     } else if (userData?.dog_cat === 'dog') {
 
       slides = dogImages;
+
+    } else if (userData?.dog_cat === 'vince') {
+
+      slides = vinceImages;
 
     }
 
@@ -51,6 +58,21 @@ function Imageslider() {
 
     const styles = useState('hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[50%] text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer ');
 
+    const handleButtonClick = () => {
+      if (userData?.dog_cat !== 'vince') {
+          setPrevDogCat(userData?.dog_cat); // Update the previous value before changing to 'vince'
+          setUserData(prevState => ({
+              ...prevState,
+              dog_cat: 'vince'
+          }));
+      } else {
+          setUserData(prevState => ({
+              ...prevState,
+              dog_cat: prevDogCat // Revert back to the previous value
+          }));
+      }
+  }
+
   return (
     <div className='max-w-[1400px] h-[780px] w-full m-auto pb-16 pt-3 px-4 relative group dark:bg-slate-500'>
         <div style={{backgroundImage: `url(${slides[currentIndex]})`}} className='w-full h-full rounded-2xl bg-center bg-cover duration-500'></div>
@@ -69,6 +91,7 @@ function Imageslider() {
                 </div>
             ))}
         </div>
+        <button onClick={handleButtonClick}>Vince Mode</button>
     </div>
   );
 }

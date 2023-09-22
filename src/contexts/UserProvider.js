@@ -5,6 +5,7 @@ const UserContext = createContext({});
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(false); // toggle 
     const [userData, setUserData] = useState([]);
+    const [vinceMode, setVinceMode]= useState (false);
 
     return (
         <UserContext.Provider value={{  
@@ -12,6 +13,8 @@ export const UserProvider = ({ children }) => {
             setUser,
             userData,
             setUserData,
+            vinceMode, 
+            setVinceMode
         }}>
             {children}
         </UserContext.Provider>

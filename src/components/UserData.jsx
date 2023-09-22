@@ -8,7 +8,7 @@ const REFRESH_URL = '/refresh';
 const UserData = () => {
 
     const { auth, setAuth } = useContext(AuthContext);
-    const { setUserData } = useContext(UserContext)
+    const { setUserData } = useContext(UserContext);
     const { user, setUser} = useContext(UserContext);
 
     useEffect( () => {

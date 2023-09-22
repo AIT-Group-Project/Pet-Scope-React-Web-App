@@ -13,7 +13,6 @@ const Footer = () => {
         <span>Terms ∙ Privacy Policy </span>
         
     </div>
-
   </footer>
     
   )
