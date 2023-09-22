@@ -84,6 +84,9 @@ function Form() {
 	    } catch (error) {
 		  console.error('Error:', error);
 	    }
+      setUser(false);
+      setUserData([null]);
+      navigate('/home');
       
 	};
   
