@@ -91,7 +91,7 @@ function Imageslider() {
                 </div>
             ))}
         </div>
-        <button onClick={handleButtonClick}>Vince Mode</button>
+        <button className= 'dark:text-slate-500 text-white font-bold' onClick={handleButtonClick}>Vince Mode</button>
     </div>
   );
 }
