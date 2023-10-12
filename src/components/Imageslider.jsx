@@ -74,7 +74,7 @@ function Imageslider() {
   }
 
   return (
-    <div className='max-w-[1400px] h-[780px] w-full m-auto pb-16 pt-3 px-4 relative group dark:bg-slate-500'>
+    <div className='max-w-[1750px] h-[1000px] w-full m-auto pb-16 pt-3 px-4 relative group dark:bg-slate-500'>
         <div style={{backgroundImage: `url(${slides[currentIndex]})`}} className='w-full h-full rounded-2xl bg-center bg-cover duration-500'></div>
         {/* Left Arrow */}
         <div className={`${styles} left-5`}>
