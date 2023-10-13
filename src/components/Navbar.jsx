@@ -9,7 +9,7 @@ import Darkmode from './Darkmode';
 const NavLinks = ({title, route}) => (
     <NavLink
         to={route}
-        className='block text-xl rounded-lg m-2 px-3 py-2 hover:bg-emerald-600 text-black font-semibold dark:hover:bg-slate-500 dark:text-white transition duration-700 ease-in-out '
+        className='block text-xl rounded-lg m-2 px-3 py-2 min-w-fit hover:bg-emerald-600 text-black font-semibold dark:hover:bg-slate-500 dark:text-white transition duration-700 ease-in-out '
     >
         {title}
     </NavLink>
